@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disma Ehitus – Üldehitustööd</title>
+    <meta name="description" content="Disma Ehitus – üldehitustööd vundamendist võtmeteni. Pakume teenust üle Eesti.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <div class="container header__inner">
+            <a href="#home" class="logo">
+                <div class="logo__icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="4" y="20" width="14" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                        <rect x="22" y="12" width="14" height="24" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                        <path d="M8 28h6M26 20h6M26 26h6M26 32h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M2 36h36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M11 20V8l8-4v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="logo__text">Disma Ehitus</span>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#home" class="nav__link active" data-i18n="nav_home">Avaleht</a>
+                <a href="#about" class="nav__link" data-i18n="nav_about">Meist</a>
+                <a href="#process" class="nav__link" data-i18n="nav_process">Kuidas me töötame</a>
+                <a href="#services" class="nav__link" data-i18n="nav_services">Teenused</a>
+                <a href="#projects" class="nav__link" data-i18n="nav_projects">Projektid</a>
+                <a href="#reviews" class="nav__link" data-i18n="nav_reviews">Arvustused</a>
+                <a href="#contact" class="nav__link" data-i18n="nav_contact">Kontakt</a>
+            </nav>
+            <div class="header__actions">
+                <div class="lang-switcher">
+                    <button class="lang-switcher__btn" id="langBtn">
+                        <span class="lang-switcher__current">ET</span>
+                        <svg class="lang-switcher__arrow" width="10" height="6" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+                    </button>
+                    <div class="lang-switcher__dropdown" id="langDropdown">
+                        <button class="lang-switcher__option active" data-lang="et">Eesti</button>
+                        <button class="lang-switcher__option" data-lang="ru">Русский</button>
+                        <button class="lang-switcher__option" data-lang="en">English</button>
+                    </div>
+                </div>
+                <a href="tel:+37255908490" class="header__phone">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                    <span>+372 5590 8490</span>
+                </a>
+                <button class="burger" id="burger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero__bg">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80" alt="Modern interior" loading="eager">
+            <div class="hero__overlay"></div>
+        </div>
+        <div class="container hero__inner">
+            <div class="hero__content reveal">
+                <span class="hero__badge" data-i18n="hero_badge">Üle 10 aasta kogemust</span>
+                <h1 class="hero__title" data-i18n="hero_title">Ehitame kvaliteeti.<br>Loome kodu.</h1>
+                <p class="hero__text" data-i18n="hero_text">Üldehitustööd vundamendist võtmeteni — pakume usaldusväärset teenust üle kogu Eesti.</p>
+                <div class="hero__actions">
+                    <a href="#contact" class="btn btn--primary" data-i18n="hero_cta">Võta ühendust</a>
+                    <a href="#projects" class="btn btn--outline" data-i18n="hero_projects">Vaata projekte</a>
+                </div>
+            </div>
+            <div class="hero__image reveal reveal--right">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Construction project">
+            </div>
+        </div>
+        <div class="hero__scroll">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats__grid reveal">
+                <div class="stats__item">
+                    <span class="stats__number" data-count="10">0</span><span class="stats__plus">+</span>
+                    <span class="stats__label" data-i18n="stats_experience">Aastat kogemust</span>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__number" data-count="200">0</span><span class="stats__plus">+</span>
+                    <span class="stats__label" data-i18n="stats_projects">Lõpetatud projekti</span>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__number" data-count="150">0</span><span class="stats__plus">+</span>
+                    <span class="stats__label" data-i18n="stats_clients">Rahulolev klient</span>
+                </div>
+                <div class="stats__item">
+                    <span class="stats__number" data-count="100">0</span><span class="stats__percent">%</span>
+                    <span class="stats__label" data-i18n="stats_quality">Kvaliteet garanteeritud</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="about__grid">
+                <div class="about__images reveal">
+                    <div class="about__img about__img--main">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Construction work">
+                    </div>
+                    <div class="about__img about__img--secondary">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&q=80" alt="Interior work">
+                    </div>
+                    <div class="about__experience-badge">
+                        <span class="about__experience-number">10+</span>
+                        <span class="about__experience-text" data-i18n="about_exp_badge">aastat<br>kogemust</span>
+                    </div>
+                </div>
+                <div class="about__content reveal reveal--right">
+                    <span class="section__tag" data-i18n="about_tag">Meist</span>
+                    <h2 class="section__title" data-i18n="about_title">Usaldusväärne partner ehituses</h2>
+                    <p class="about__lead" data-i18n="about_lead">Üldehitustööd vundamendist võtmeteni – pakume teenust üle Eesti.</p>
+                    <p class="about__text" data-i18n="about_text">Disma Ehitus on usaldusväärne ehitusettevõte, mis pakub laia valikut ehitus- ja remonttöid üle kogu Eesti. Meie meeskond koosneb kogenud spetsialistidest, kes tagavad iga projekti kõrge kvaliteedi ja tähtaegadest kinnipidamise.</p>
+                    <div class="about__features">
+                        <div class="about__feature">
+                            <div class="about__feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <div>
+                                <strong data-i18n="about_f1_title">Kogenud meeskond</strong>
+                                <p data-i18n="about_f1_text">Professionaalsed ehitusspetsialistid</p>
+                            </div>
+                        </div>
+                        <div class="about__feature">
+                            <div class="about__feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div>
+                                <strong data-i18n="about_f2_title">Kvaliteedi garantii</strong>
+                                <p data-i18n="about_f2_text">Kasutame ainult kvaliteetseid materjale</p>
+                            </div>
+                        </div>
+                        <div class="about__feature">
+                            <div class="about__feature-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div>
+                                <strong data-i18n="about_f3_title">Tähtaegadest kinnipidamine</strong>
+                                <p data-i18n="about_f3_text">Alati õigeaegselt valmis</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="process section" id="process">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag" data-i18n="process_tag">Kuidas me töötame</span>
+                <h2 class="section__title" data-i18n="process_title">Meie tööprotsess</h2>
+                <p class="section__subtitle" data-i18n="process_subtitle">Lihtne ja läbipaistev koostöö algusest lõpuni.</p>
+            </div>
+            <div class="process__grid">
+                <div class="process__step reveal">
+                    <div class="process__step-number">01</div>
+                    <div class="process__step-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                    </div>
+                    <h3 class="process__step-title" data-i18n="process_s1_title">Tutvumine</h3>
+                    <p class="process__step-text" data-i18n="process_s1_text">Kohtume teiega, kuulame soove ja hindame projekti mahtu. Arutame eelarvet, tähtaegu ja ootusi.</p>
+                </div>
+                <div class="process__step reveal">
+                    <div class="process__step-number">02</div>
+                    <div class="process__step-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                    </div>
+                    <h3 class="process__step-title" data-i18n="process_s2_title">Hindamine</h3>
+                    <p class="process__step-text" data-i18n="process_s2_text">Teostame objekti ülevaatuse, koostame detailse hinnapakkumise ja tööplaani.</p>
+                </div>
+                <div class="process__step reveal">
+                    <div class="process__step-number">03</div>
+                    <div class="process__step-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                    </div>
+                    <h3 class="process__step-title" data-i18n="process_s3_title">Kohandamine</h3>
+                    <p class="process__step-text" data-i18n="process_s3_text">Kohandame lahenduse vastavalt teie soovile — materjalid, disain, ajakava. Kõik vastavalt teie vajadustele.</p>
+                </div>
+                <div class="process__step reveal">
+                    <div class="process__step-number">04</div>
+                    <div class="process__step-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3 class="process__step-title" data-i18n="process_s4_title">Teostus</h3>
+                    <p class="process__step-text" data-i18n="process_s4_text">Alustame tööd kokkulepitud ajakava järgi. Hoiame teid protsessiga kursis ja tagame kvaliteedi igal etapil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services section" id="services">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag" data-i18n="services_tag">Teenused</span>
+                <h2 class="section__title" data-i18n="services_title">Meie teenused</h2>
+                <p class="section__subtitle" data-i18n="services_subtitle">Pakume laia valikut ehitus- ja remonttöid, et teie projekt oleks parimas kätes.</p>
+            </div>
+            <div class="services__grid">
+                <!-- Category 1: Üldehitus -->
+                <div class="services__card reveal">
+                    <div class="services__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20h20M4 20V10l8-6 8 6v10M9 20v-6h6v6"/><path d="M9 14h6" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="services__card-title" data-i18n="svc_cat1_title">Üldehitus</h3>
+                    <p class="services__card-desc" data-i18n="svc_cat1_desc">Täielik ehitusteenus alates vundamendist kuni võtmete üleandmiseni.</p>
+                    <ul class="services__list">
+                        <li data-i18n="svc_1_1">Ehitustööd ja viimistlustööd</li>
+                        <li data-i18n="svc_1_2">Üldehitus ja ehitusremonttööd</li>
+                        <li data-i18n="svc_1_3">Renoveerimine</li>
+                        <li data-i18n="svc_1_4">Korterite remont</li>
+                        <li data-i18n="svc_1_5">Vundamenditööd</li>
+                        <li data-i18n="svc_1_6">Müüritööd ja betoonitööd</li>
+                        <li data-i18n="svc_1_7">Fassaaditööd</li>
+                        <li data-i18n="svc_1_8">Katusetööd</li>
+                        <li data-i18n="svc_1_9">Puitkonstruktsioonid</li>
+                    </ul>
+                </div>
+                <!-- Category 2: Siseviimistlus -->
+                <div class="services__card reveal">
+                    <div class="services__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18" stroke-linecap="round"/><circle cx="15" cy="15" r="2"/></svg>
+                    </div>
+                    <h3 class="services__card-title" data-i18n="svc_cat2_title">Siseviimistlus</h3>
+                    <p class="services__card-desc" data-i18n="svc_cat2_desc">Professionaalne siseviimistlus, mis muudab ruumid kauniks ja funktsionaalseks.</p>
+                    <ul class="services__list">
+                        <li data-i18n="svc_2_1">Siseviimistlus</li>
+                        <li data-i18n="svc_2_2">Maalritööd</li>
+                        <li data-i18n="svc_2_3">Plaatimistööd</li>
+                        <li data-i18n="svc_2_4">Vannitubade remont</li>
+                        <li data-i18n="svc_2_5">Akende ja uste paigaldus</li>
+                        <li data-i18n="svc_2_6">Põrandatööd</li>
+                        <li data-i18n="svc_2_7">Sauna ehitus</li>
+                        <li data-i18n="svc_2_8">Terrassid</li>
+                    </ul>
+                </div>
+                <!-- Category 3: Santehnika -->
+                <div class="services__card reveal">
+                    <div class="services__card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v6M6 8h12a2 2 0 012 2v2a6 6 0 01-12 0v-2a2 2 0 012-2M12 18v4M8 22h8"/><path d="M5 8V6M19 8V6" stroke-linecap="round"/></svg>
+                    </div>
+                    <h3 class="services__card-title" data-i18n="svc_cat3_title">Santehnika</h3>
+                    <p class="services__card-desc" data-i18n="svc_cat3_desc">Sanitaartehnilised tööd ja torustike paigaldus professionaalsel tasemel.</p>
+                    <ul class="services__list">
+                        <li data-i18n="svc_3_1">Torutööd</li>
+                        <li data-i18n="svc_3_2">Sanitaartehnika paigaldus</li>
+                        <li data-i18n="svc_3_3">Torustiku paigaldus ja remont</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects section" id="projects">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag" data-i18n="projects_tag">Projektid</span>
+                <h2 class="section__title" data-i18n="projects_title">Meie tööd</h2>
+                <p class="section__subtitle" data-i18n="projects_subtitle">Vaadake meie viimaseid projekte ja veenduge meie kvaliteedis.</p>
+            </div>
+            <div class="projects__grid">
+                <div class="projects__card reveal">
+                    <div class="projects__card-img">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&q=80" alt="Apartment renovation" loading="lazy">
+                        <div class="projects__card-overlay">
+                            <span class="projects__card-year">2025</span>
+                        </div>
+                    </div>
+                    <div class="projects__card-info">
+                        <h3 data-i18n="proj_1_title">Korteri täisremont Tallinnas</h3>
+                        <p data-i18n="proj_1_desc">Täielik korteri renoveerimine, sealhulgas köök, vannituba ja elutuba.</p>
+                    </div>
+                </div>
+                <div class="projects__card reveal">
+                    <div class="projects__card-img">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Bathroom renovation" loading="lazy">
+                        <div class="projects__card-overlay">
+                            <span class="projects__card-year">2024</span>
+                        </div>
+                    </div>
+                    <div class="projects__card-info">
+                        <h3 data-i18n="proj_2_title">Vannitoa renoveerimine Tartus</h3>
+                        <p data-i18n="proj_2_desc">Kaasaegne vannitoa lahendus koos kvaliteetsete materjalidega.</p>
+                    </div>
+                </div>
+                <div class="projects__card reveal">
+                    <div class="projects__card-img">
+                        <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=600&q=80" alt="House construction" loading="lazy">
+                        <div class="projects__card-overlay">
+                            <span class="projects__card-year">2024</span>
+                        </div>
+                    </div>
+                    <div class="projects__card-info">
+                        <h3 data-i18n="proj_3_title">Eramaja ehitus Pärnus</h3>
+                        <p data-i18n="proj_3_desc">Eramaja ehitus vundamendist katuseharjani, võtmed kätte.</p>
+                    </div>
+                </div>
+                <div class="projects__card reveal">
+                    <div class="projects__card-img">
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80" alt="Office renovation" loading="lazy">
+                        <div class="projects__card-overlay">
+                            <span class="projects__card-year">2023</span>
+                        </div>
+                    </div>
+                    <div class="projects__card-info">
+                        <h3 data-i18n="proj_4_title">Kontori renoveerimine</h3>
+                        <p data-i18n="proj_4_desc">Kaasaegse kontoriruumi loomine vastavalt kliendi soovidele.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery section" id="gallery">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag" data-i18n="gallery_tag">Galerii</span>
+                <h2 class="section__title" data-i18n="gallery_title">Meie tööd pildis</h2>
+            </div>
+        </div>
+        <div class="gallery__track-wrapper">
+            <div class="gallery__track" id="galleryTrack">
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80" alt="Gallery 1" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80" alt="Gallery 2" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=500&q=80" alt="Gallery 3" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=500&q=80" alt="Gallery 4" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=500&q=80" alt="Gallery 5" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500&q=80" alt="Gallery 6" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80" alt="Gallery 7" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&q=80" alt="Gallery 8" loading="lazy"></div>
+                <!-- Duplicates for infinite scroll -->
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500&q=80" alt="Gallery 1" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80" alt="Gallery 2" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=500&q=80" alt="Gallery 3" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=500&q=80" alt="Gallery 4" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=500&q=80" alt="Gallery 5" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500&q=80" alt="Gallery 6" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=500&q=80" alt="Gallery 7" loading="lazy"></div>
+                <div class="gallery__item"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&q=80" alt="Gallery 8" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY MODAL -->
+    <div class="modal" id="galleryModal">
+        <button class="modal__close" id="modalClose" aria-label="Close">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <img class="modal__img" id="modalImg" src="" alt="Gallery image">
+    </div>
+
+    <!-- REVIEWS -->
+    <section class="reviews section" id="reviews">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag" data-i18n="reviews_tag">Arvustused</span>
+                <h2 class="section__title" data-i18n="reviews_title">Mida meie kliendid ütlevad</h2>
+            </div>
+            <div class="reviews__rating reveal">
+                <div class="reviews__stars">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <span class="reviews__score">4.8 / 5</span>
+                <span class="reviews__count" data-i18n="reviews_count">Põhineb 30+ arvustusel</span>
+            </div>
+            <div class="reviews__grid">
+                <div class="reviews__card reveal">
+                    <div class="reviews__card-stars">★★★★★</div>
+                    <p class="reviews__card-text" data-i18n="review_1_text">"Suurepärane töö! Korteri remont tehti tähtaegselt ja väga kvaliteetselt. Soovitan kõigile!"</p>
+                    <div class="reviews__card-author">
+                        <div class="reviews__card-avatar">AK</div>
+                        <div>
+                            <strong>Andrei K.</strong>
+                            <span>Tallinn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews__card reveal">
+                    <div class="reviews__card-stars">★★★★★</div>
+                    <p class="reviews__card-text" data-i18n="review_2_text">"Professionaalne meeskond, kes teab, mida teeb. Vannitoa remont ületas kõik ootused."</p>
+                    <div class="reviews__card-author">
+                        <div class="reviews__card-avatar">ML</div>
+                        <div>
+                            <strong>Maria L.</strong>
+                            <span>Tartu</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews__card reveal">
+                    <div class="reviews__card-stars">★★★★★</div>
+                    <p class="reviews__card-text" data-i18n="review_3_text">"Tegid meie unistuste kodu tegelikkuseks. Kogu protsess oli läbipaistev ja professionaalne."</p>
+                    <div class="reviews__card-author">
+                        <div class="reviews__card-avatar">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt="Jüri T.">
+                        </div>
+                        <div>
+                            <strong>Jüri T.</strong>
+                            <span>Pärnu</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews__more reveal">
+                <button class="btn btn--outline" data-i18n="reviews_more">Näita rohkem arvustusi</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+        <div class="container">
+            <div class="section__header reveal">
+                <span class="section__tag" data-i18n="contact_tag">Kontakt</span>
+                <h2 class="section__title" data-i18n="contact_title">Võtke meiega ühendust</h2>
+                <p class="section__subtitle" data-i18n="contact_subtitle">Küsige pakkumist või esitage küsimus — vastame esimesel võimalusel.</p>
+            </div>
+            <div class="contact__grid">
+                <div class="contact__info reveal">
+                    <div class="contact__info-card">
+                        <div class="contact__info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
+                        <div>
+                            <strong data-i18n="contact_phone_label">Telefon</strong>
+                            <a href="tel:+37255908490">+372 5590 8490</a>
+                            <small>Martin</small>
+                        </div>
+                    </div>
+                    <div class="contact__info-card">
+                        <div class="contact__info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:dismasehitus@gmail.com">dismasehitus@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact__info-card">
+                        <div class="contact__info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div>
+                            <strong data-i18n="contact_address_label">Aadress</strong>
+                            <span data-i18n="contact_address">Eesti, Harjumaa</span>
+                        </div>
+                    </div>
+                    <div class="contact__map reveal">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d510476.4618498454!2d24.3806888!3d59.3715136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4692949de8a31df1%3A0x22b3ced3e94dd40!2sTallinn%2C%20Estonia!5e0!3m2!1sen!2see!4v1680000000000!5m2!1sen!2see" width="100%" height="250" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="contact__form-wrapper reveal reveal--right">
+                    <form class="contact__form" id="contactForm">
+                        <div class="form__group">
+                            <label for="name" data-i18n="form_name_label">Teie nimi</label>
+                            <input type="text" id="name" name="name" required data-i18n-placeholder="form_name_placeholder" placeholder="Sisestage oma nimi">
+                        </div>
+                        <div class="form__group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required data-i18n-placeholder="form_email_placeholder" placeholder="Sisestage oma email">
+                        </div>
+                        <div class="form__group">
+                            <label for="message" data-i18n="form_message_label">Sõnum</label>
+                            <textarea id="message" name="message" rows="5" required data-i18n-placeholder="form_message_placeholder" placeholder="Kirjeldage oma projekti..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn--primary btn--full" data-i18n="form_submit">Saada sõnum</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#home" class="logo">
+                        <div class="logo__icon">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="4" y="20" width="14" height="16" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                                <rect x="22" y="12" width="14" height="24" rx="2" stroke="currentColor" stroke-width="2.5"/>
+                                <path d="M8 28h6M26 20h6M26 26h6M26 32h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M2 36h36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M11 20V8l8-4v8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="logo__text">Disma Ehitus</span>
+                    </a>
+                    <p class="footer__desc" data-i18n="footer_desc">Üldehitustööd vundamendist võtmeteni — pakume usaldusväärset teenust üle kogu Eesti.</p>
+                </div>
+                <div class="footer__links">
+                    <h4 data-i18n="footer_nav">Navigatsioon</h4>
+                    <a href="#home" data-i18n="nav_home">Avaleht</a>
+                    <a href="#about" data-i18n="nav_about">Meist</a>
+                    <a href="#process" data-i18n="nav_process">Kuidas me töötame</a>
+                    <a href="#services" data-i18n="nav_services">Teenused</a>
+                    <a href="#projects" data-i18n="nav_projects">Projektid</a>
+                    <a href="#contact" data-i18n="nav_contact">Kontakt</a>
+                </div>
+                <div class="footer__contact">
+                    <h4 data-i18n="contact_tag">Kontakt</h4>
+                    <a href="tel:+37255908490">+372 5590 8490</a>
+                    <a href="mailto:dismasehitus@gmail.com">dismasehitus@gmail.com</a>
+                    <span data-i18n="contact_address">Eesti, Harjumaa</span>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 Disma Ehitus. <span data-i18n="footer_rights">Kõik õigused kaitstud.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
