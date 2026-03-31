@@ -211,6 +211,13 @@ ul { list-style: none; }
     color: var(--color-accent);
 }
 
+.logo__img {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+    border-radius: 6px;
+}
+
 .logo__text {
     font-family: var(--font-display);
     font-size: 1.25rem;
@@ -1297,6 +1304,11 @@ ul { list-style: none; }
 
 .footer .logo__icon {
     color: var(--color-accent);
+}
+
+.footer .logo__img {
+    width: 40px;
+    height: 40px;
 }
 
 .footer .logo__text {
