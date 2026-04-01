@@ -112,7 +112,7 @@ const translations = {
         form_message_placeholder: "Kirjeldage oma projekti...",
         form_submit: "Saada sõnum",
         contact_address_label: "Aadress",
-        contact_address: "Mahtra 2-15, Tallinn, 13811",
+        contact_address: "Tallinn",
         footer_desc: "Üldehitustööd vundamendist võtmeteni — pakume usaldusväärset teenust üle kogu Eesti.",
         footer_nav: "Navigatsioon",
         footer_rights: "Kõik õigused kaitstud."
@@ -229,7 +229,7 @@ const translations = {
         form_message_placeholder: "Опишите ваш проект...",
         form_submit: "Отправить сообщение",
         contact_address_label: "Адрес",
-        contact_address: "Mahtra 2-15, Tallinn, 13811",
+        contact_address: "Таллинн",
         footer_desc: "Строительные работы от фундамента до «под ключ» — надёжный сервис по всей Эстонии.",
         footer_nav: "Навигация",
         footer_rights: "Все права защищены."
@@ -346,7 +346,7 @@ const translations = {
         form_message_placeholder: "Describe your project...",
         form_submit: "Send message",
         contact_address_label: "Address",
-        contact_address: "Mahtra 2-15, Tallinn, 13811",
+        contact_address: "Tallinn",
         footer_desc: "General construction from foundation to turnkey — reliable service across all of Estonia.",
         footer_nav: "Navigation",
         footer_rights: "All rights reserved."
