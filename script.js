@@ -80,7 +80,7 @@ const translations = {
         proj_4_title: "Kontori renoveerimine",
         proj_4_desc: "Kaasaegse kontoriruumi loomine vastavalt kliendi soovidele.",
         gallery_tag: "Galerii",
-        gallery_title: "Meie tööd pildis",
+        gallery_title: "Meie tööd",
         reviews_tag: "Arvustused",
         reviews_title: "Mida meie kliendid ütlevad",
         reviews_count: "Põhineb 25+ arvustusel",
@@ -197,7 +197,7 @@ const translations = {
         proj_4_title: "Ремонт офиса",
         proj_4_desc: "Создание современного офисного пространства в соответствии с пожеланиями клиента.",
         gallery_tag: "Галерея",
-        gallery_title: "Наши работы в фотографиях",
+        gallery_title: "Наши работы",
         reviews_tag: "Отзывы",
         reviews_title: "Что говорят наши клиенты",
         reviews_count: "На основании 25+ отзывов",
@@ -314,7 +314,7 @@ const translations = {
         proj_4_title: "Office renovation",
         proj_4_desc: "Creating a modern office space according to client wishes.",
         gallery_tag: "Gallery",
-        gallery_title: "Our work in pictures",
+        gallery_title: "Our work",
         reviews_tag: "Reviews",
         reviews_title: "What our clients say",
         reviews_count: "Based on 25+ reviews",
@@ -522,24 +522,25 @@ function initGalleryModal() {
     const modal = document.getElementById("galleryModal");
     const modalImg = document.getElementById("modalImg");
     const modalClose = document.getElementById("modalClose");
-    const track = document.getElementById("galleryTrack");
+    const tracks = document.querySelectorAll(".gallery__track");
 
-    if (!track || !modal) return;
+    if (!tracks.length || !modal) return;
 
-    track.querySelectorAll(".gallery__item img").forEach(img => {
-        img.addEventListener("click", () => {
-            const src = img.src.replace("w=500", "w=1200");
-            modalImg.src = src;
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden";
-            track.style.animationPlayState = "paused";
+    tracks.forEach(track => {
+        track.querySelectorAll(".gallery__item img").forEach(img => {
+            img.addEventListener("click", () => {
+                modalImg.src = img.src;
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+                tracks.forEach(t => t.style.animationPlayState = "paused");
+            });
         });
     });
 
     function closeModal() {
         modal.classList.remove("active");
         document.body.style.overflow = "";
-        track.style.animationPlayState = "";
+        tracks.forEach(t => t.style.animationPlayState = "");
     }
 
     modalClose.addEventListener("click", closeModal);
