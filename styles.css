@@ -180,7 +180,7 @@ ul { list-style: none; }
     left: 0;
     right: 0;
     z-index: 1100;
-    background: rgba(255, 255, 255, 0.92);
+    background: #ffffff;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid transparent;
@@ -214,10 +214,11 @@ ul { list-style: none; }
 }
 
 .logo__img {
-    width: 44px;
-    height: 44px;
+    width: 64px;
+    height: 64px;
     object-fit: contain;
-    border-radius: 6px;
+    background: transparent;
+    mix-blend-mode: multiply;
 }
 
 .logo__text {
@@ -1251,7 +1252,7 @@ ul { list-style: none; }
 }
 
 .review-modal__star {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
     color: var(--color-border);
     transition: color 0.15s ease, transform 0.15s ease;
     user-select: none;
