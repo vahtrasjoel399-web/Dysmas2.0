@@ -83,11 +83,24 @@ const translations = {
         gallery_title: "Meie tööd pildis",
         reviews_tag: "Arvustused",
         reviews_title: "Mida meie kliendid ütlevad",
-        reviews_count: "Põhineb 30+ arvustusel",
+        reviews_count: "Põhineb 25+ arvustusel",
         review_1_text: "\"Suurepärane töö! Korteri remont tehti tähtaegselt ja väga kvaliteetselt. Soovitan kõigile!\"",
         review_2_text: "\"Professionaalne meeskond, kes teab, mida teeb. Vannitoa remont ületas kõik ootused.\"",
         review_3_text: "\"Tegid meie unistuste kodu tegelikkuseks. Kogu protsess oli läbipaistev ja professionaalne.\"",
         reviews_more: "Näita rohkem arvustusi",
+        reviews_less: "Näita vähem",
+        reviews_source: "Hinnangud portaalist Hange.ee",
+        reviews_leave: "Jäta arvustus",
+        review_modal_title: "Jätke oma arvustus",
+        review_form_name: "Teie nimi",
+        review_form_name_ph: "Nt. Jaan T.",
+        review_form_service: "Teenus",
+        review_form_service_ph: "Nt. Vannitoa remont",
+        review_form_rating: "Hinne",
+        review_form_text: "Arvustus",
+        review_form_text_ph: "Kirjeldage oma kogemust...",
+        review_form_submit: "Saada arvustus",
+        review_form_success: "Täname! Teie arvustus on saadetud.",
         contact_tag: "Kontakt",
         contact_title: "Võtke meiega ühendust",
         contact_subtitle: "Küsige pakkumist või esitage küsimus — vastame esimesel võimalusel.",
@@ -99,7 +112,7 @@ const translations = {
         form_message_placeholder: "Kirjeldage oma projekti...",
         form_submit: "Saada sõnum",
         contact_address_label: "Aadress",
-        contact_address: "Eesti, Harjumaa",
+        contact_address: "Mahtra 2-15, Tallinn, 13811",
         footer_desc: "Üldehitustööd vundamendist võtmeteni — pakume usaldusväärset teenust üle kogu Eesti.",
         footer_nav: "Navigatsioon",
         footer_rights: "Kõik õigused kaitstud."
@@ -187,11 +200,24 @@ const translations = {
         gallery_title: "Наши работы в фотографиях",
         reviews_tag: "Отзывы",
         reviews_title: "Что говорят наши клиенты",
-        reviews_count: "На основании 30+ отзывов",
+        reviews_count: "На основании 25+ отзывов",
         review_1_text: "\"Отличная работа! Ремонт квартиры выполнен в срок и очень качественно. Рекомендую всем!\"",
         review_2_text: "\"Профессиональная команда, которая знает своё дело. Ремонт ванной превзошёл все ожидания.\"",
         review_3_text: "\"Воплотили наш дом мечты в реальность. Весь процесс был прозрачным и профессиональным.\"",
         reviews_more: "Показать больше отзывов",
+        reviews_less: "Показать меньше",
+        reviews_source: "Оценки с портала Hange.ee",
+        reviews_leave: "Оставить отзыв",
+        review_modal_title: "Оставьте свой отзыв",
+        review_form_name: "Ваше имя",
+        review_form_name_ph: "Напр. Иван П.",
+        review_form_service: "Услуга",
+        review_form_service_ph: "Напр. Ремонт ванной",
+        review_form_rating: "Оценка",
+        review_form_text: "Отзыв",
+        review_form_text_ph: "Опишите ваш опыт...",
+        review_form_submit: "Отправить отзыв",
+        review_form_success: "Спасибо! Ваш отзыв отправлен.",
         contact_tag: "Контакты",
         contact_title: "Свяжитесь с нами",
         contact_subtitle: "Запросите предложение или задайте вопрос — ответим при первой возможности.",
@@ -203,7 +229,7 @@ const translations = {
         form_message_placeholder: "Опишите ваш проект...",
         form_submit: "Отправить сообщение",
         contact_address_label: "Адрес",
-        contact_address: "Эстония, Харьюмаа",
+        contact_address: "Mahtra 2-15, Tallinn, 13811",
         footer_desc: "Строительные работы от фундамента до «под ключ» — надёжный сервис по всей Эстонии.",
         footer_nav: "Навигация",
         footer_rights: "Все права защищены."
@@ -291,11 +317,24 @@ const translations = {
         gallery_title: "Our work in pictures",
         reviews_tag: "Reviews",
         reviews_title: "What our clients say",
-        reviews_count: "Based on 30+ reviews",
+        reviews_count: "Based on 25+ reviews",
         review_1_text: "\"Excellent work! The apartment renovation was completed on time and with great quality. Highly recommended!\"",
         review_2_text: "\"A professional team that knows what they're doing. The bathroom renovation exceeded all expectations.\"",
         review_3_text: "\"They made our dream home a reality. The entire process was transparent and professional.\"",
         reviews_more: "Show more reviews",
+        reviews_less: "Show less",
+        reviews_source: "Ratings from Hange.ee portal",
+        reviews_leave: "Leave a review",
+        review_modal_title: "Leave your review",
+        review_form_name: "Your name",
+        review_form_name_ph: "E.g. John D.",
+        review_form_service: "Service",
+        review_form_service_ph: "E.g. Bathroom renovation",
+        review_form_rating: "Rating",
+        review_form_text: "Review",
+        review_form_text_ph: "Describe your experience...",
+        review_form_submit: "Submit review",
+        review_form_success: "Thank you! Your review has been submitted.",
         contact_tag: "Contact",
         contact_title: "Get in touch",
         contact_subtitle: "Request a quote or ask a question — we'll respond at the earliest opportunity.",
@@ -307,7 +346,7 @@ const translations = {
         form_message_placeholder: "Describe your project...",
         form_submit: "Send message",
         contact_address_label: "Address",
-        contact_address: "Estonia, Harjumaa",
+        contact_address: "Mahtra 2-15, Tallinn, 13811",
         footer_desc: "General construction from foundation to turnkey — reliable service across all of Estonia.",
         footer_nav: "Navigation",
         footer_rights: "All rights reserved."
@@ -328,6 +367,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initContactForm();
     initSmoothScroll();
     initActiveNav();
+    initReviews();
+    initReviewModal();
 });
 
 /* ===== HEADER SCROLL ===== */
@@ -416,6 +457,8 @@ function setLanguage(lang) {
             el.placeholder = t[key];
         }
     });
+
+    renderReviews();
 }
 
 /* ===== REVEAL ANIMATIONS ===== */
@@ -573,4 +616,217 @@ function initActiveNav() {
     });
 
     sections.forEach(section => observer.observe(section));
+}
+
+/* ===== REVIEWS DATA & RENDERING ===== */
+const reviewsData = [
+    { service: { et: "Püstaku vahetus", ru: "Замена стояка", en: "Riser replacement" }, rating: 5.0, date: "28.03.2026",
+      text: { et: "Töö oli kiire ja korralik. Väga viisakad ja asjalikud mehed.", ru: "Работа была быстрой и аккуратной. Очень вежливые и деловые ребята.", en: "The work was fast and neat. Very polite and professional guys." }, author: "Priit V." },
+    { service: { et: "Kanalisatsiooni remont", ru: "Ремонт канализации", en: "Sewer repair" }, rating: 4.7, date: "20.03.2026",
+      text: { et: "Väga tublid. Töö kiire ja korralik. Probleemid lahendatud.", ru: "Очень молодцы. Работа быстрая и аккуратная. Проблемы решены.", en: "Very diligent. Work was fast and neat. Problems solved." }, author: "Tiit K." },
+    { service: { et: "Kortermaja külmaveetorustiku renoveerimine", ru: "Реновация холодного водоснабжения многоквартирного дома", en: "Cold water piping renovation in apartment building" }, rating: 5.0, date: "03.03.2026",
+      text: { et: "Korralik, kiire ja paindlik, leiab lahenduse ka keerulisemate olukordade korral.", ru: "Аккуратный, быстрый и гибкий, находит решение даже в сложных ситуациях.", en: "Neat, fast and flexible, finds solutions even in complicated situations." }, author: "Marek L." },
+    { service: { et: "Korteri siselammutustööd", ru: "Демонтажные работы в квартире", en: "Apartment demolition works" }, rating: 5.0, date: "03.03.2026",
+      text: { et: "Suhtlus oli operatiivne ja konkreetne. Töö teostati korrektselt ja kiirelt. Hinnakokkuleppest peeti kinni.", ru: "Общение было оперативным и конкретным. Работа выполнена корректно и быстро. Договорённость по цене соблюдена.", en: "Communication was prompt and clear. Work was done correctly and quickly. Price agreement was honored." }, author: "Merike L." },
+    { service: { et: "Vanni asendamine dušiseinaga", ru: "Замена ванны на душевую перегородку", en: "Replacing bathtub with shower screen" }, rating: 5.0, date: "23.02.2026",
+      text: { et: "Väga kiire ning kvaliteetne töö mõistliku hinna eest. Sõbralik ja abivalmis suhtumine, ehitaja mõtleb ise kaasa ning pakub lahendusi. Selgelt suure kogemuste pagasiga ning teostus väga kvaliteetne. Soovitan!", ru: "Очень быстрая и качественная работа за разумную цену. Дружелюбное и отзывчивое отношение, строитель сам думает и предлагает решения. Явно с большим опытом, исполнение очень качественное. Рекомендую!", en: "Very fast and high-quality work for a reasonable price. Friendly and helpful attitude, the builder thinks along and offers solutions. Clearly very experienced, execution was top quality. Highly recommend!" }, author: "Sander T." },
+    { service: { et: "Veearvesti konsooli paigaldamine", ru: "Установка консоли водомера", en: "Water meter console installation" }, rating: 5.0, date: "20.02.2026",
+      text: { et: "Usaldusväärne, asjatundlik ja korrektne inimene, kes teab, mida ja kuidas teha. Tõeline leid!", ru: "Надёжный, компетентный и корректный человек, который знает, что и как делать. Настоящая находка!", en: "Reliable, knowledgeable and correct person who knows what and how to do. A real find!" }, author: "Riina T." },
+    { service: { et: "Pelletikatla ühendamine olemasoleva küttesüsteemiga", ru: "Подключение пеллетного котла к существующей системе отопления", en: "Connecting pellet boiler to existing heating system" }, rating: 5.0, date: "10.02.2026",
+      text: { et: "Töö pelletikatla ühendamisel olemasoleva küttesüsteemiga oli väga professionaalne ja läbimõeldud. Süsteem töötab tõrgeteta ja efektiivselt. Väga meeldiv kogemus – usaldusväärne spetsialist, keda julgen kindlasti soovitada!", ru: "Работа по подключению пеллетного котла к существующей системе отопления была очень профессиональной и продуманной. Система работает без сбоев и эффективно. Очень приятный опыт – надёжный специалист, которого смело рекомендую!", en: "The work connecting the pellet boiler to the existing heating system was very professional and well thought out. The system works flawlessly and efficiently. A very pleasant experience – a reliable specialist I can definitely recommend!" }, author: "Kaitis K." },
+    { service: { et: "Nurgavanni paigaldus", ru: "Установка угловой ванны", en: "Corner bathtub installation" }, rating: 5.0, date: "04.02.2026", text: null, author: null },
+    { service: { et: "Vanni asendamine dušši asemele", ru: "Замена ванны на душ", en: "Replacing bathtub with shower" }, rating: 4.7, date: "29.01.2026", text: null, author: null },
+    { service: { et: "Põranda tasandamine", ru: "Выравнивание пола", en: "Floor leveling" }, rating: 5.0, date: "26.01.2026",
+      text: { et: "Tõeline kergendus on teadmine, et töömeest saab usaldada. Minu parandustöö vajadus oli natuke ebastandardne, kuid vaatamata kõigele sai töö tehtud korralikult ja ületas minu ootusi. Samuti on inimene lahke, abivalmis ja sõbralik, mistõttu oli koostöö veelgi muretum ja meeldiv.", ru: "Настоящее облегчение – знать, что мастеру можно доверять. Мой ремонт был нестандартным, но несмотря на это, работа была выполнена аккуратно и превзошла мои ожидания. Человек добрый, отзывчивый и дружелюбный, поэтому сотрудничество было ещё приятнее.", en: "A true relief knowing you can trust the worker. My repair need was a bit non-standard, but despite everything the work was done properly and exceeded my expectations. Also a kind, helpful and friendly person, making the cooperation even more pleasant." }, author: "Sarlee R." },
+    { service: { et: "Vannitoa kraanikausi vahetus", ru: "Замена раковины в ванной", en: "Bathroom sink replacement" }, rating: 5.0, date: "16.01.2026",
+      text: { et: "Väga asjalik meistrimees, tundis oma tööd väga hästi, töö tehti kiiresti ja kõik tööks vajalikud detailid olid tal olemas, et kohe lõpptulemust saada. Suurepärane!", ru: "Очень деловой мастер, отлично знал своё дело, работа выполнена быстро, все необходимые детали были при нём. Отлично!", en: "Very professional craftsman, knew his work very well, the job was done quickly and he had all necessary parts for an immediate result. Excellent!" }, author: "Hille R." },
+    { service: { et: "Torutööd korteris", ru: "Сантехнические работы в квартире", en: "Plumbing works in apartment" }, rating: 5.0, date: "03.01.2026",
+      text: { et: "Korralik ja kiire töö, jäime väga rahule!", ru: "Аккуратная и быстрая работа, остались очень довольны!", en: "Neat and fast work, we were very satisfied!" }, author: "Kerli P." },
+    { service: { et: "Kraanide vahetus", ru: "Замена кранов", en: "Faucet replacement" }, rating: 5.0, date: "02.01.2026",
+      text: { et: "Tõesti meeldiv kogemus! Esialgne minupoolne plaan ei olnud kõige optimaalsem, töö teostaja mõtles välja parema lahenduse, arutasime läbi ja sai valmis. Täpselt see, mida ma ootasin – kaasamõtlemine ja kvaliteetne teostus.", ru: "Действительно приятный опыт! Мой первоначальный план был не самым оптимальным, исполнитель придумал лучшее решение, мы обсудили, и всё было сделано. Именно то, что я ожидал – совместное мышление и качественное исполнение.", en: "A truly pleasant experience! My initial plan wasn't the most optimal, the contractor came up with a better solution, we discussed it and it was done. Exactly what I expected – collaborative thinking and quality execution." }, author: "Markko J." },
+    { service: { et: "Vannitoa kapitaalremont", ru: "Капитальный ремонт ванной", en: "Full bathroom renovation" }, rating: 5.0, date: "30.12.2025",
+      text: { et: "Jäime teostatud tööga väga rahule. Suhtlus oli algusest lõpuni väga lihtne ja kiire. Erinevaid töid tegid oma ala professionaalid ning lõpptulemus on kvaliteetne. Kokkuvõttes jäime väga rahule ja kutsume nad hea meelega ka tulevikus teisi tube renoveerima.", ru: "Остались очень довольны выполненной работой. Общение от начала до конца было очень простым и быстрым. Разные работы выполняли профессионалы своего дела, конечный результат качественный. В итоге остались очень довольны и с удовольствием пригласим их и для ремонта других комнат.", en: "We were very satisfied with the work. Communication was very simple and fast from start to finish. Different works were done by professionals and the final result is high quality. Overall very satisfied and would happily invite them to renovate other rooms." }, author: "Laura P." },
+    { service: { et: "Vannituba", ru: "Ванная комната", en: "Bathroom" }, rating: 5.0, date: "27.12.2025",
+      text: { et: "Väga hea koostöö. Tööde käigus tekkinud takistused said kiirelt ja korrektselt lahendatud. Töö käigus saime ka muud ehitusalast nõu. Oleme lõpptulemusega väga rahul.", ru: "Очень хорошее сотрудничество. Возникшие в ходе работ препятствия были быстро и корректно устранены. В процессе работы получили и другие строительные советы. Результатом очень довольны.", en: "Very good cooperation. Obstacles encountered during the work were resolved quickly and correctly. We also received other construction advice during the process. Very satisfied with the result." }, author: "Raul K." },
+    { service: { et: "Akna paigaldus", ru: "Установка окна", en: "Window installation" }, rating: 5.0, date: "16.12.2025",
+      text: { et: "Väga rahul tulemuse ja kvaliteediga. Eriti tahan tänada tööde väga kiire teostamise eest. Korrektsed ja vastutustundlikud mehed – oleks rohkem selliseid professionaale. Soovitan kõigile!", ru: "Очень доволен результатом и качеством. Особенно благодарю за очень быстрое выполнение работ. Корректные и ответственные ребята – побольше бы таких профессионалов. Рекомендую всем!", en: "Very satisfied with the result and quality. Especially grateful for the very fast execution. Correct and responsible guys – wish there were more such professionals. Recommend to everyone!" }, author: "Arkadi T." },
+    { service: { et: "Kanalisatsiooni püstaku ja veetrassi ehitus", ru: "Строительство канализационного стояка и водопровода", en: "Sewer riser and water line construction" }, rating: 4.7, date: "19.11.2025",
+      text: { et: "Ühe veetoru nurga oleks võinud veel panna, aga muidu töö kiire ja korralik.", ru: "Один угол водопроводной трубы можно было бы ещё добавить, но в остальном работа быстрая и аккуратная.", en: "Could have added one more water pipe corner, but otherwise the work was fast and neat." }, author: "Kaja R." },
+    { service: { et: "Vesi-põrandakütte paigaldamine", ru: "Установка водяного тёплого пола", en: "Underfloor water heating installation" }, rating: 5.0, date: "13.11.2025",
+      text: { et: "Vesi-põrandakütte paigaldamisel lisaks tegid ka plaatimistöid ja muud nipet-näpet. Tegid korralikult ja kiirelt oma töö ära.", ru: "При установке водяного тёплого пола также выполнили плиточные работы и прочие мелочи. Сделали свою работу аккуратно и быстро.", en: "During the underfloor heating installation they also did tiling and other small tasks. Did their work neatly and quickly." }, author: "Hannes S." },
+    { service: { et: "Torutööd", ru: "Сантехнические работы", en: "Plumbing works" }, rating: 5.0, date: "12.11.2025",
+      text: { et: "Töö kiire ja korralik. Kindlasti soovitan.", ru: "Работа быстрая и аккуратная. Однозначно рекомендую.", en: "Work was fast and neat. Definitely recommend." }, author: "Veiko K." },
+    { service: { et: "Korteri kanalisatsioonitorude ja veepüstaku ümberpaigutamine", ru: "Перемещение канализационных труб и водяного стояка в квартире", en: "Relocating apartment sewer pipes and water riser" }, rating: 5.0, date: "06.11.2025",
+      text: { et: "Oleme väga rahul, töö sai tehtud kiiresti ja korralikult.", ru: "Очень довольны, работа была выполнена быстро и аккуратно.", en: "We are very satisfied, the work was done quickly and neatly." }, author: "Kaarin K." },
+    { service: { et: "Eramaja kanalisatsioon ja soojuspumba torude paigaldus", ru: "Канализация частного дома и монтаж труб теплового насоса", en: "Private house sewage and heat pump pipe installation" }, rating: 5.0, date: "04.10.2025",
+      text: { et: "Soovitan teistele. Väga viisakad, oskavad ise ka mõelda ning kaasa rääkida. Küsimustele vastavad koheselt. Annavad soovitusi. Teavad nõudeid. Täpsed. Kõik kokkulepped toimisid. Töö korrektne ning tehtud kaasaegselt ning kiirelt.", ru: "Рекомендую другим. Очень вежливые, умеют сами думать и участвовать в обсуждении. На вопросы отвечают сразу. Дают рекомендации. Знают требования. Точные. Все договорённости соблюдены. Работа корректная, сделана современно и быстро.", en: "Recommend to others. Very polite, can think independently and contribute to discussions. Answer questions immediately. Give recommendations. Know requirements. Precise. All agreements were honored. Work was correct, modern and fast." }, author: "Reelika R." },
+    { service: { et: "Värskeõhuklapi ehitus ja paigaldus", ru: "Изготовление и установка приточного клапана", en: "Fresh air valve construction and installation" }, rating: 4.7, date: "25.09.2025", text: null, author: null },
+    { service: { et: "Sauna ehitus", ru: "Строительство сауны", en: "Sauna construction" }, rating: 5.0, date: "31.08.2025",
+      text: { et: "Hea suhtlus, head loovad lahendused ebatavapärastele probleemidele, kiire töö, hoidsid puhtust ja olid autonoomsed.", ru: "Хорошее общение, креативные решения для нестандартных проблем, быстрая работа, поддерживали чистоту и работали самостоятельно.", en: "Good communication, creative solutions for unusual problems, fast work, kept things clean and worked autonomously." }, author: "Taavi A." },
+    { service: { et: "Põranda plaatide vahetamine", ru: "Замена напольной плитки", en: "Floor tile replacement" }, rating: 5.0, date: "12.06.2025",
+      text: { et: "Kõik käis sujuvalt ja nagu kokkulepitud.", ru: "Всё прошло гладко и как договорились.", en: "Everything went smoothly and as agreed." }, author: "Tanel L." },
+    { service: { et: "Ukse vahetamine", ru: "Замена двери", en: "Door replacement" }, rating: 5.0, date: "26.05.2025",
+      text: { et: "Sujuv ja paindlik koostöö. Jooksvalt tekkinud probleemid said läbi räägitud ja lahendatud. Hind vastab kvaliteedile.", ru: "Гладкое и гибкое сотрудничество. Возникшие по ходу проблемы были обсуждены и решены. Цена соответствует качеству.", en: "Smooth and flexible cooperation. Problems that arose were discussed and resolved. Price matches quality." }, author: "Alik S." }
+];
+
+const REVIEWS_PER_PAGE = 3;
+let reviewsShown = 0;
+
+function initReviews() {
+    const grid = document.getElementById('reviewsGrid');
+    const moreBtn = document.getElementById('reviewsMoreBtn');
+    const lessBtn = document.getElementById('reviewsLessBtn');
+    if (!grid || !moreBtn) return;
+
+    showMoreReviews();
+    moreBtn.addEventListener('click', showMoreReviews);
+    if (lessBtn) {
+        lessBtn.addEventListener('click', showLessReviews);
+    }
+}
+
+function renderReviews() {
+    const grid = document.getElementById('reviewsGrid');
+    const moreBtn = document.getElementById('reviewsMoreBtn');
+    const lessBtn = document.getElementById('reviewsLessBtn');
+    if (!grid) return;
+
+    grid.innerHTML = '';
+    const visibleReviews = reviewsData.slice(0, reviewsShown);
+
+    visibleReviews.forEach(review => {
+        grid.appendChild(createReviewCard(review));
+    });
+
+    if (moreBtn) {
+        moreBtn.parentElement.style.display = '';
+        moreBtn.style.display = reviewsShown >= reviewsData.length ? 'none' : '';
+    }
+    if (lessBtn) {
+        lessBtn.style.display = reviewsShown > REVIEWS_PER_PAGE ? '' : 'none';
+    }
+}
+
+function showMoreReviews() {
+    reviewsShown = Math.min(reviewsShown + REVIEWS_PER_PAGE, reviewsData.length);
+    renderReviews();
+}
+
+function showLessReviews() {
+    reviewsShown = REVIEWS_PER_PAGE;
+    renderReviews();
+    const section = document.getElementById('reviews');
+    if (section) section.scrollIntoView({ behavior: 'smooth' });
+}
+
+function createReviewCard(review) {
+    const card = document.createElement('div');
+    card.className = 'reviews__card reveal visible';
+
+    const lang = currentLang;
+    const serviceName = typeof review.service === 'object' ? (review.service[lang] || review.service.et) : review.service;
+    const reviewText = review.text ? (typeof review.text === 'object' ? (review.text[lang] || review.text.et) : review.text) : null;
+
+    const stars = '\u2605'.repeat(Math.round(review.rating)) + '\u2606'.repeat(5 - Math.round(review.rating));
+
+    let html = '<span class="reviews__card-service">' + escapeHtml(serviceName) + '</span>';
+    html += '<div class="reviews__card-stars">' + stars + ' <span class="reviews__card-score">' + review.rating + '</span></div>';
+
+    if (reviewText) {
+        html += '<p class="reviews__card-text">\u201c' + escapeHtml(reviewText) + '\u201d</p>';
+    }
+
+    if (review.author) {
+        const initials = review.author.replace(/\./g, '').split(/\s+/).map(w => w[0]).join('');
+        html += '<div class="reviews__card-author">';
+        html += '<div class="reviews__card-avatar">' + escapeHtml(initials) + '</div>';
+        html += '<div><strong>' + escapeHtml(review.author) + '</strong><span>' + escapeHtml(review.date) + '</span></div>';
+        html += '</div>';
+    }
+
+    card.innerHTML = html;
+    return card;
+}
+
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+/* ===== REVIEW MODAL ===== */
+function initReviewModal() {
+    const openBtn = document.getElementById('leaveReviewBtn');
+    const modal = document.getElementById('reviewModal');
+    const closeBtn = document.getElementById('reviewModalClose');
+    const backdrop = document.getElementById('reviewModalBackdrop');
+    const form = document.getElementById('reviewForm');
+    const starsContainer = document.getElementById('reviewStars');
+    if (!openBtn || !modal || !form) return;
+
+    let selectedRating = 0;
+
+    function openModal() {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    if (backdrop) backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+
+    if (starsContainer) {
+        const stars = starsContainer.querySelectorAll('.review-modal__star');
+        stars.forEach(star => {
+            star.addEventListener('mouseenter', () => {
+                const val = parseInt(star.dataset.value);
+                stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.value) <= val));
+            });
+            star.addEventListener('click', () => {
+                selectedRating = parseInt(star.dataset.value);
+                stars.forEach(s => s.classList.toggle('selected', parseInt(s.dataset.value) <= selectedRating));
+            });
+        });
+        starsContainer.addEventListener('mouseleave', () => {
+            stars.forEach(s => {
+                s.classList.toggle('active', parseInt(s.dataset.value) <= selectedRating);
+            });
+        });
+    }
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (selectedRating === 0) {
+            starsContainer.classList.add('shake');
+            setTimeout(() => starsContainer.classList.remove('shake'), 500);
+            return;
+        }
+
+        const btn = form.querySelector('button[type="submit"]');
+        const t = translations[currentLang] || translations.et;
+        btn.textContent = t.review_form_success || 'Täname!';
+        btn.style.background = 'var(--color-success)';
+        btn.style.borderColor = 'var(--color-success)';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            form.reset();
+            selectedRating = 0;
+            const stars = starsContainer.querySelectorAll('.review-modal__star');
+            stars.forEach(s => { s.classList.remove('selected'); s.classList.remove('active'); });
+            btn.textContent = t.review_form_submit || 'Saada arvustus';
+            btn.style.background = '';
+            btn.style.borderColor = '';
+            btn.disabled = false;
+            closeModal();
+        }, 2000);
+    });
 }

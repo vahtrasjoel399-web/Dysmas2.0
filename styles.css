@@ -13,9 +13,9 @@
     --color-bg: #ffffff;
     --color-bg-alt: #f8f7f4;
     --color-bg-dark: #111118;
-    --color-text: #2d2d3a;
-    --color-text-light: #6b6b80;
-    --color-text-muted: #9999ab;
+    --color-text: #1a1a2a;
+    --color-text-light: #3d3d52;
+    --color-text-muted: #7a7a8f;
     --color-border: #e5e5ea;
     --color-border-light: #f0f0f3;
     --color-white: #ffffff;
@@ -46,6 +46,7 @@ html {
 
 body {
     font-family: var(--font-primary);
+    font-size: 1.0625rem;
     color: var(--color-text);
     background: var(--color-bg);
     line-height: 1.7;
@@ -1071,6 +1072,27 @@ ul { list-style: none; }
     font-size: 1.1rem;
     margin-bottom: 16px;
     letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.reviews__card-score {
+    font-family: var(--font-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0;
+}
+
+.reviews__card-service {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-accent);
+    margin-bottom: 10px;
 }
 
 .reviews__card-text {
@@ -1119,6 +1141,125 @@ ul { list-style: none; }
 
 .reviews__more {
     text-align: center;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.reviews__source {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    margin-top: 8px;
+    transition: color var(--transition);
+}
+
+.reviews__source:hover {
+    color: var(--color-accent);
+}
+
+.reviews__leave-btn {
+    font-size: 0.85rem;
+    padding: 10px 20px;
+}
+
+/* ===== REVIEW MODAL ===== */
+.review-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.review-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.review-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+.review-modal__content {
+    position: relative;
+    background: var(--color-bg);
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    max-width: 440px;
+    width: 90%;
+    box-shadow: var(--shadow-xl);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.review-modal.active .review-modal__content {
+    transform: translateY(0);
+}
+
+.review-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: color var(--transition);
+}
+
+.review-modal__close:hover {
+    color: var(--color-text);
+}
+
+.review-modal__title {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+}
+
+.review-modal__stars {
+    display: flex;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.review-modal__star {
+    font-size: 1.8rem;
+    color: var(--color-border);
+    transition: color 0.15s ease, transform 0.15s ease;
+    user-select: none;
+}
+
+.review-modal__star.active,
+.review-modal__star.selected {
+    color: var(--color-star);
+}
+
+.review-modal__star:hover {
+    transform: scale(1.2);
+}
+
+.review-modal__stars.shake {
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
 }
 
 /* ===== CONTACT ===== */
@@ -1205,6 +1346,21 @@ ul { list-style: none; }
     border-radius: var(--radius-md);
     overflow: hidden;
     border: 1px solid var(--color-border-light);
+}
+
+.contact__map-link {
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.contact__map-link:hover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: var(--radius-md);
+    transition: background var(--transition);
 }
 
 .contact__map iframe {
