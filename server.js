@@ -14,6 +14,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname)));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+// Admin panel route
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "admin.html"));
+});
+
 const JWT_SECRET = "disma_ehitus_secret_key_2024";
 const DATA_FILE = path.join(__dirname, "data.json");
 

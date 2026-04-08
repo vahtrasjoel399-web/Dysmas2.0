@@ -265,25 +265,30 @@ document.getElementById("fileInput").addEventListener("change", async (e) => {
     if (!file) return;
 
     const msgEl = document.getElementById("uploadMsg");
-    const formData = new FormData();
-    formData.append("image", file);
-    formData.append("name", file.name);
 
-    try {
-        const res = await fetch(API + "/api/gallery", {
-            method: "POST",
-            headers: { "Authorization": "Bearer " + token },
-            body: formData
-        });
-        if (res.ok) {
-            showMsg(msgEl, "Фото загружено!", "ok");
-            loadGallery();
-        } else {
-            showMsg(msgEl, "Ошибка загрузки", "err");
+    // Convert to base64
+    const reader = new FileReader();
+    reader.onload = async function() {
+        try {
+            const res = await fetch(API + "/api/gallery", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + token
+                },
+                body: JSON.stringify({ image: reader.result, name: file.name })
+            });
+            if (res.ok) {
+                showMsg(msgEl, "Фото загружено!", "ok");
+                loadGallery();
+            } else {
+                showMsg(msgEl, "Ошибка загрузки", "err");
+            }
+        } catch (err) {
+            showMsg(msgEl, "Сервер недоступен", "err");
         }
-    } catch (err) {
-        showMsg(msgEl, "Сервер недоступен", "err");
-    }
+    };
+    reader.readAsDataURL(file);
 
     e.target.value = "";
 });
@@ -308,7 +313,7 @@ uploadArea.addEventListener("drop", (e) => {
 async function deleteImage(id) {
     if (!confirm("Удалить фото?")) return;
     try {
-        await fetch(API + "/api/gallery/" + id, {
+        await fetch(API + "/api/gallery-delete?id=" + id, {
             method: "DELETE",
             headers: { "Authorization": "Bearer " + token }
         });

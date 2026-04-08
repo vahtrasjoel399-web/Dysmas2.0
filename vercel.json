@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/admin", "destination": "https://dysmas-ehitus.onrender.com/admin", "permanent": false }
+  ]
+}
