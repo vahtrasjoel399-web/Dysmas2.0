@@ -571,7 +571,7 @@ function initContactForm() {
         btn.disabled = true;
         btn.textContent = currentLang === "ru" ? "Отправка..." : currentLang === "en" ? "Sending..." : "Saatmine...";
 
-        emailjs.send("service_fxfpy0u", "template_fj9e0ip", {
+        emailjs.send("service_fxfpy0u", "template_19itq25", {
             title: name,
             name: name,
             email: email,
