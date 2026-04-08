@@ -4,69 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Админ-панель — Dysmas Ehitus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; min-height: 100vh; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Login */
-        .login-page { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-        .login-box { background: #1e293b; padding: 40px; border-radius: 16px; width: 100%; max-width: 400px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); }
-        .login-box h1 { text-align: center; margin-bottom: 8px; font-size: 24px; color: #f59e0b; }
-        .login-box p { text-align: center; margin-bottom: 24px; color: #94a3b8; font-size: 14px; }
-        .login-box .error { background: #dc2626; color: white; padding: 10px; border-radius: 8px; margin-bottom: 16px; text-align: center; font-size: 14px; display: none; }
+        :root {
+            --primary: #1a1a2e;
+            --accent: #c9a96e;
+            --accent-dark: #b08d50;
+            --accent-light: #e8d5b0;
+            --bg: #ffffff;
+            --bg-alt: #f8f7f4;
+            --text: #1a1a2a;
+            --text-light: #3d3d52;
+            --text-muted: #7a7a8f;
+            --border: #e5e5ea;
+            --border-light: #f0f0f3;
+            --success: #10b981;
+            --danger: #ef4444;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-display: 'Poppins', 'Inter', sans-serif;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --radius: 12px;
+            --radius-sm: 8px;
+        }
 
-        /* Forms */
-        .form-group { margin-bottom: 16px; }
-        .form-group label { display: block; margin-bottom: 6px; font-size: 14px; color: #94a3b8; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; background: #0f172a; border: 1px solid #334155; border-radius: 8px; color: #e2e8f0; font-size: 14px; outline: none; transition: border 0.2s; }
-        .form-group input:focus, .form-group textarea:focus { border-color: #f59e0b; }
-        .form-group textarea { resize: vertical; min-height: 80px; }
+        body { font-family: var(--font); background: var(--bg-alt); color: var(--text); min-height: 100vh; line-height: 1.6; }
 
-        .btn { padding: 12px 24px; background: #f59e0b; color: #0f172a; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
-        .btn:hover { background: #d97706; }
-        .btn--full { width: 100%; }
-        .btn--danger { background: #dc2626; color: white; }
-        .btn--danger:hover { background: #b91c1c; }
-        .btn--sm { padding: 8px 16px; font-size: 12px; }
+        /* ── Login ── */
+        .login-page { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(135deg, var(--primary) 0%, #2d2d50 100%); }
+        .login-card { background: var(--bg); padding: 48px 40px; border-radius: 20px; width: 100%; max-width: 420px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+        .login-card__logo { text-align: center; margin-bottom: 32px; }
+        .login-card__logo h1 { font-family: var(--font-display); font-size: 22px; color: var(--primary); margin-bottom: 4px; }
+        .login-card__logo span { color: var(--accent); }
+        .login-card__logo p { color: var(--text-muted); font-size: 14px; }
+        .login-card .error { background: #fef2f2; color: var(--danger); border: 1px solid #fecaca; padding: 12px; border-radius: var(--radius-sm); margin-bottom: 16px; text-align: center; font-size: 14px; display: none; }
 
-        /* Dashboard */
+        /* ── Forms ── */
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; margin-bottom: 6px; font-size: 13px; font-weight: 500; color: var(--text-light); }
+        .form-group input, .form-group textarea { width: 100%; padding: 11px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); color: var(--text); font-family: var(--font); font-size: 14px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(201,169,110,0.12); }
+        .form-group textarea { resize: vertical; min-height: 72px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        /* ── Buttons ── */
+        .btn { padding: 11px 24px; background: var(--accent); color: #fff; border: none; border-radius: var(--radius-sm); font-family: var(--font); font-size: 14px; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.1s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn:hover { background: var(--accent-dark); }
+        .btn:active { transform: scale(0.98); }
+        .btn--full { width: 100%; justify-content: center; }
+        .btn--danger { background: var(--danger); }
+        .btn--danger:hover { background: #dc2626; }
+        .btn--sm { padding: 6px 14px; font-size: 12px; border-radius: 6px; }
+        .btn--outline { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+        .btn--outline:hover { background: var(--bg-alt); color: var(--text); }
+
+        /* ── Dashboard ── */
         .dashboard { display: none; }
-        .topbar { background: #1e293b; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; }
-        .topbar h2 { font-size: 18px; color: #f59e0b; }
-        .topbar .btn { font-size: 12px; padding: 8px 16px; }
+        .topbar { background: var(--primary); padding: 0 32px; display: flex; justify-content: space-between; align-items: center; height: 60px; position: sticky; top: 0; z-index: 100; }
+        .topbar__brand { display: flex; align-items: center; gap: 10px; }
+        .topbar__brand h2 { font-family: var(--font-display); font-size: 17px; color: var(--accent); font-weight: 600; }
+        .topbar__brand span { color: rgba(255,255,255,0.4); font-size: 12px; }
+        .topbar .btn { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.12); font-size: 13px; padding: 7px 16px; }
+        .topbar .btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
 
-        .tabs { display: flex; gap: 0; background: #1e293b; border-bottom: 1px solid #334155; }
-        .tab { padding: 14px 24px; cursor: pointer; font-size: 14px; color: #94a3b8; border-bottom: 2px solid transparent; transition: all 0.2s; }
-        .tab:hover { color: #e2e8f0; }
-        .tab.active { color: #f59e0b; border-bottom-color: #f59e0b; }
+        /* ── Tabs ── */
+        .tabs { display: flex; background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 32px; overflow-x: auto; }
+        .tab { padding: 14px 24px; cursor: pointer; font-size: 14px; font-weight: 500; color: var(--text-muted); border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
+        .tab:hover { color: var(--text); }
+        .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
 
-        .content { max-width: 900px; margin: 32px auto; padding: 0 24px; }
+        /* ── Main ── */
+        .main { max-width: 920px; margin: 28px auto; padding: 0 24px; }
         .panel { display: none; }
         .panel.active { display: block; }
 
-        .card { background: #1e293b; border-radius: 12px; padding: 24px; margin-bottom: 24px; border: 1px solid #334155; }
-        .card h3 { margin-bottom: 16px; font-size: 18px; }
+        /* ── Cards ── */
+        .card { background: var(--bg); border-radius: var(--radius); padding: 28px; margin-bottom: 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm); }
+        .card__title { font-family: var(--font-display); font-size: 16px; font-weight: 600; color: var(--primary); margin-bottom: 18px; }
 
-        /* Gallery */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin-top: 16px; }
-        .gallery-item { position: relative; border-radius: 8px; overflow: hidden; background: #0f172a; }
-        .gallery-item img { width: 100%; height: 160px; object-fit: cover; display: block; }
-        .gallery-item .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.2s; }
-        .gallery-item:hover .overlay { opacity: 1; }
+        /* ── Section Toggle ── */
+        .section-group { margin-bottom: 12px; }
+        .section-toggle { width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: var(--font); font-size: 14px; font-weight: 600; color: var(--primary); transition: all 0.2s; }
+        .section-toggle:hover { border-color: var(--accent); background: #fdfbf7; }
+        .section-toggle .arrow { transition: transform 0.2s; font-size: 12px; color: var(--accent); }
+        .section-toggle.open { border-radius: var(--radius-sm) var(--radius-sm) 0 0; border-color: var(--accent); background: #fdfbf7; }
+        .section-toggle.open .arrow { transform: rotate(180deg); }
+        .section-body { display: none; padding: 20px; border: 1px solid var(--border); border-top: none; border-radius: 0 0 var(--radius-sm) var(--radius-sm); background: var(--bg); }
+        .section-body.open { display: block; }
 
-        .upload-area { border: 2px dashed #334155; border-radius: 12px; padding: 32px; text-align: center; cursor: pointer; transition: border-color 0.2s; }
-        .upload-area:hover { border-color: #f59e0b; }
+        /* ── Gallery ── */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px; }
+        .gallery-item { position: relative; border-radius: var(--radius-sm); overflow: hidden; background: var(--bg-alt); border: 1px solid var(--border-light); transition: transform 0.2s, box-shadow 0.2s; }
+        .gallery-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .gallery-item img { width: 100%; height: 150px; object-fit: cover; display: block; }
+        .gallery-item__actions { position: absolute; top: 6px; right: 6px; opacity: 0; transition: opacity 0.2s; }
+        .gallery-item:hover .gallery-item__actions { opacity: 1; }
+        .gallery-item__name { padding: 6px 10px; font-size: 11px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        .upload-area { border: 2px dashed var(--border); border-radius: var(--radius); padding: 36px 20px; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; margin-bottom: 20px; }
+        .upload-area:hover, .upload-area.drag { border-color: var(--accent); background: rgba(201,169,110,0.04); }
         .upload-area input { display: none; }
-        .upload-area p { color: #94a3b8; margin-top: 8px; font-size: 14px; }
+        .upload-area svg { color: var(--accent); margin-bottom: 10px; }
+        .upload-area p { color: var(--text-muted); font-size: 14px; }
+        .upload-area span { color: var(--accent); font-weight: 600; }
 
-        .msg { padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: center; font-size: 14px; display: none; }
-        .msg--ok { background: #166534; color: #bbf7d0; }
-        .msg--err { background: #991b1b; color: #fecaca; }
+        .empty { text-align: center; padding: 36px 20px; color: var(--text-muted); font-size: 14px; }
 
-        @media (max-width: 600px) {
-            .topbar { padding: 12px 16px; }
-            .content { padding: 0 16px; }
-            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
+        /* ── Messages ── */
+        .msg { padding: 12px 16px; border-radius: var(--radius-sm); margin-bottom: 16px; text-align: center; font-size: 14px; display: none; }
+        .msg--ok { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+        .msg--err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .topbar { padding: 0 16px; }
+            .tabs { padding: 0 12px; }
+            .tab { padding: 12px 16px; font-size: 13px; }
+            .main { padding: 0 14px; margin: 16px auto; }
+            .card { padding: 20px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+            .form-row { grid-template-columns: 1fr; }
+            .login-card { padding: 32px 24px; margin: 16px; }
         }
     </style>
 </head>
@@ -74,14 +136,16 @@
 
 <!-- LOGIN -->
 <div class="login-page" id="loginPage">
-    <div class="login-box">
-        <h1>🔐 Админ-панель</h1>
-        <p>Dysmas Ehitus OÜ</p>
+    <div class="login-card">
+        <div class="login-card__logo">
+            <h1>Dysmas <span>Ehitus</span></h1>
+            <p>Админ-панель</p>
+        </div>
         <div class="error" id="loginError"></div>
         <form id="loginForm">
             <div class="form-group">
                 <label>Email</label>
-                <input type="email" id="loginEmail" placeholder="admin@disma.ee" required>
+                <input type="email" id="loginEmail" placeholder="admin@dysmas.ee" required>
             </div>
             <div class="form-group">
                 <label>Пароль</label>
@@ -95,41 +159,166 @@
 <!-- DASHBOARD -->
 <div class="dashboard" id="dashboard">
     <div class="topbar">
-        <h2>Dysmas Ehitus — Админ</h2>
-        <button class="btn btn--danger btn--sm" onclick="logout()">Выйти</button>
+        <div class="topbar__brand">
+            <h2>Dysmas Ehitus</h2>
+            <span>Админ-панель</span>
+        </div>
+        <button class="btn" onclick="logout()">Выйти</button>
     </div>
 
     <div class="tabs">
         <div class="tab active" data-tab="gallery">📷 Галерея</div>
-        <div class="tab" data-tab="content">✏️ Контент</div>
-        <div class="tab" data-tab="settings">⚙️ Настройки</div>
+        <div class="tab" data-tab="content">✏️ Контент сайта</div>
     </div>
 
-    <div class="content">
-        <!-- GALLERY TAB -->
+    <div class="main">
+
+        <!-- ═══ GALLERY TAB ═══ -->
         <div class="panel active" id="panel-gallery">
             <div class="card">
-                <h3>Загрузить фото</h3>
+                <div class="card__title">Загрузить фото</div>
                 <div class="upload-area" id="uploadArea">
-                    <input type="file" id="fileInput" accept="image/*">
-                    <p>📁 Нажмите или перетащите фото сюда</p>
+                    <input type="file" id="fileInput" accept="image/*" multiple>
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    <p><span>Нажмите</span> или перетащите фото сюда</p>
+                    <p style="font-size:12px;margin-top:4px;">JPG, PNG, WebP — до 5 МБ</p>
                 </div>
                 <div class="msg" id="uploadMsg"></div>
             </div>
             <div class="card">
-                <h3>Все фото</h3>
+                <div class="card__title">Фото на сайте</div>
                 <div class="gallery-grid" id="galleryGrid">
-                    <p style="color:#64748b">Загрузка...</p>
+                    <div class="empty">Загрузка...</div>
                 </div>
             </div>
         </div>
 
-        <!-- CONTENT TAB -->
+        <!-- ═══ CONTENT TAB ═══ -->
         <div class="panel" id="panel-content">
-            <div class="card">
-                <h3>Контактные данные</h3>
-                <div class="msg" id="contentMsg"></div>
-                <form id="contentForm">
+            <div class="msg" id="contentMsg"></div>
+
+            <!-- Hero -->
+            <div class="section-group">
+                <button class="section-toggle" type="button" onclick="toggleSection(this)">
+                    🏠 Главная страница (Hero) <span class="arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label>Бейдж (над заголовком)</label>
+                        <input type="text" id="c_hero_badge" placeholder="Üle 10 aasta kogemust">
+                    </div>
+                    <div class="form-group">
+                        <label>Заголовок (используйте &lt;br&gt; для переноса)</label>
+                        <input type="text" id="c_hero_title" placeholder="Ehitame kvaliteeti. Loome kodu.">
+                    </div>
+                    <div class="form-group">
+                        <label>Текст под заголовком</label>
+                        <textarea id="c_hero_text" rows="2" placeholder="Pakume usaldusväärset teenust üle kogu Eesti."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About -->
+            <div class="section-group">
+                <button class="section-toggle" type="button" onclick="toggleSection(this)">
+                    📋 О компании <span class="arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label>Заголовок</label>
+                        <input type="text" id="c_about_title" placeholder="Usaldusväärne partner ehituses">
+                    </div>
+                    <div class="form-group">
+                        <label>Основной текст</label>
+                        <textarea id="c_about_text" rows="4" placeholder="Dysmas Ehitus OÜ on usaldusväärne ehitusettevõte..."></textarea>
+                    </div>
+                    <hr style="border:none;border-top:1px solid var(--border-light);margin:16px 0;">
+                    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Преимущества:</p>
+                    <div class="form-row">
+                        <div class="form-group"><label>Преимущество 1 — Заголовок</label><input type="text" id="c_about_f1_title" placeholder="Kogenud meeskond"></div>
+                        <div class="form-group"><label>Преимущество 1 — Текст</label><input type="text" id="c_about_f1_text" placeholder="Professionaalsed ehitusspetsialistid"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Преимущество 2 — Заголовок</label><input type="text" id="c_about_f2_title" placeholder="Kvaliteedi garantii"></div>
+                        <div class="form-group"><label>Преимущество 2 — Текст</label><input type="text" id="c_about_f2_text" placeholder="Kasutame ainult kvaliteetseid materjale"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Преимущество 3 — Заголовок</label><input type="text" id="c_about_f3_title" placeholder="Tähtaegadest kinnipidamine"></div>
+                        <div class="form-group"><label>Преимущество 3 — Текст</label><input type="text" id="c_about_f3_text" placeholder="Alati õigeaegselt valmis"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process -->
+            <div class="section-group">
+                <button class="section-toggle" type="button" onclick="toggleSection(this)">
+                    ⚙️ Как мы работаем <span class="arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label>Заголовок секции</label>
+                        <input type="text" id="c_process_title" placeholder="Meie tööprotsess">
+                    </div>
+                    <div class="form-group">
+                        <label>Подзаголовок</label>
+                        <input type="text" id="c_process_subtitle" placeholder="Lihtne ja läbipaistev koostöö algusest lõpuni.">
+                    </div>
+                    <hr style="border:none;border-top:1px solid var(--border-light);margin:16px 0;">
+                    <div class="form-row">
+                        <div class="form-group"><label>Шаг 1 — Заголовок</label><input type="text" id="c_process_s1_title" placeholder="Tutvumine"></div>
+                        <div class="form-group"><label>Шаг 1 — Текст</label><input type="text" id="c_process_s1_text" placeholder="Kohtume teiega, kuulame soove..."></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Шаг 2 — Заголовок</label><input type="text" id="c_process_s2_title" placeholder="Hindamine"></div>
+                        <div class="form-group"><label>Шаг 2 — Текст</label><input type="text" id="c_process_s2_text" placeholder="Teostame objekti ülevaatuse..."></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Шаг 3 — Заголовок</label><input type="text" id="c_process_s3_title" placeholder="Kohandamine"></div>
+                        <div class="form-group"><label>Шаг 3 — Текст</label><input type="text" id="c_process_s3_text" placeholder="Kohandame lahenduse vastavalt..."></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Шаг 4 — Заголовок</label><input type="text" id="c_process_s4_title" placeholder="Teostus"></div>
+                        <div class="form-group"><label>Шаг 4 — Текст</label><input type="text" id="c_process_s4_text" placeholder="Alustame tööd kokkulepitud..."></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Services -->
+            <div class="section-group">
+                <button class="section-toggle" type="button" onclick="toggleSection(this)">
+                    🔧 Услуги <span class="arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label>Заголовок секции</label>
+                        <input type="text" id="c_services_title" placeholder="Meie teenused">
+                    </div>
+                    <div class="form-group">
+                        <label>Подзаголовок</label>
+                        <input type="text" id="c_services_subtitle" placeholder="Pakume laia valikut ehitus- ja remonttöid...">
+                    </div>
+                    <hr style="border:none;border-top:1px solid var(--border-light);margin:16px 0;">
+                    <div class="form-row">
+                        <div class="form-group"><label>Категория 1 — Название</label><input type="text" id="c_svc_cat1_title" placeholder="Üldehitus"></div>
+                        <div class="form-group"><label>Категория 1 — Описание</label><input type="text" id="c_svc_cat1_desc" placeholder="Täielik ehitusteenus..."></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Категория 2 — Название</label><input type="text" id="c_svc_cat2_title" placeholder="Siseviimistlus"></div>
+                        <div class="form-group"><label>Категория 2 — Описание</label><input type="text" id="c_svc_cat2_desc" placeholder="Professionaalne siseviimistlus..."></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Категория 3 — Название</label><input type="text" id="c_svc_cat3_title" placeholder="Santehnika"></div>
+                        <div class="form-group"><label>Категория 3 — Описание</label><input type="text" id="c_svc_cat3_desc" placeholder="Sanitaartehnilised tööd..."></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="section-group">
+                <button class="section-toggle" type="button" onclick="toggleSection(this)">
+                    📞 Контакты <span class="arrow">▼</span>
+                </button>
+                <div class="section-body">
                     <div class="form-group">
                         <label>Телефон</label>
                         <input type="text" id="c_phone" placeholder="+372 5590 8490">
@@ -142,28 +331,25 @@
                         <label>Адрес</label>
                         <input type="text" id="c_address" placeholder="Tallinn">
                     </div>
-                    <div class="form-group">
-                        <label>О компании (текст)</label>
-                        <textarea id="c_about" rows="4" placeholder="Описание компании..."></textarea>
-                    </div>
-                    <button type="submit" class="btn">Сохранить</button>
-                </form>
+                </div>
             </div>
+
+            <!-- Footer -->
+            <div class="section-group">
+                <button class="section-toggle" type="button" onclick="toggleSection(this)">
+                    📄 Подвал сайта <span class="arrow">▼</span>
+                </button>
+                <div class="section-body">
+                    <div class="form-group">
+                        <label>Текст в подвале</label>
+                        <textarea id="c_footer_desc" rows="2" placeholder="Üldehitustööd vundamendist võtmeteni..."></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn--full" onclick="saveContent()" style="margin-top:8px;">💾 Сохранить все изменения</button>
         </div>
 
-        <!-- SETTINGS TAB -->
-        <div class="panel" id="panel-settings">
-            <div class="card">
-                <h3>Информация</h3>
-                <p style="color:#94a3b8; line-height:1.8">
-                    <strong>Сайт:</strong> Dysmas Ehitus OÜ<br>
-                    <strong>Админ:</strong> admin@disma.ee<br>
-                    <strong>Пароль по умолчанию:</strong> admin123<br>
-                    <strong>Сервер:</strong> http://localhost:3000<br><br>
-                    ⚠️ Смените пароль после первого входа!
-                </p>
-            </div>
-        </div>
     </div>
 </div>
 
@@ -171,21 +357,30 @@
 const API = window.location.origin;
 let token = localStorage.getItem("admin_token");
 
-// Check if already logged in
-if (token) {
-    showDashboard();
-    loadGallery();
-    loadContent();
-}
+/* ── All content field IDs (must match data.json keys) ── */
+const CONTENT_FIELDS = [
+    "hero_badge","hero_title","hero_text",
+    "about_title","about_text",
+    "about_f1_title","about_f1_text","about_f2_title","about_f2_text","about_f3_title","about_f3_text",
+    "process_title","process_subtitle",
+    "process_s1_title","process_s1_text","process_s2_title","process_s2_text",
+    "process_s3_title","process_s3_text","process_s4_title","process_s4_text",
+    "services_title","services_subtitle",
+    "svc_cat1_title","svc_cat1_desc","svc_cat2_title","svc_cat2_desc","svc_cat3_title","svc_cat3_desc",
+    "phone","email","address",
+    "footer_desc"
+];
 
-// --- LOGIN ---
+// Auto-login
+if (token) { showDashboard(); loadGallery(); loadContent(); }
+
+/* ══════ LOGIN ══════ */
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const email = document.getElementById("loginEmail").value.trim();
     const password = document.getElementById("loginPassword").value;
     const errEl = document.getElementById("loginError");
     errEl.style.display = "none";
-
     try {
         const res = await fetch(API + "/api/login", {
             method: "POST",
@@ -193,34 +388,20 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
             body: JSON.stringify({ email, password })
         });
         const data = await res.json();
-        if (!res.ok) {
-            errEl.textContent = data.error || "Ошибка входа";
-            errEl.style.display = "block";
-            return;
-        }
+        if (!res.ok) { errEl.textContent = data.error || "Ошибка входа"; errEl.style.display = "block"; return; }
         token = data.token;
         localStorage.setItem("admin_token", token);
-        showDashboard();
-        loadGallery();
-        loadContent();
-    } catch (err) {
-        errEl.textContent = "Сервер недоступен";
-        errEl.style.display = "block";
-    }
+        showDashboard(); loadGallery(); loadContent();
+    } catch { errEl.textContent = "Сервер недоступен"; errEl.style.display = "block"; }
 });
 
 function showDashboard() {
     document.getElementById("loginPage").style.display = "none";
     document.getElementById("dashboard").style.display = "block";
 }
+function logout() { token = null; localStorage.removeItem("admin_token"); location.reload(); }
 
-function logout() {
-    token = null;
-    localStorage.removeItem("admin_token");
-    location.reload();
-}
-
-// --- TABS ---
+/* ══════ TABS ══════ */
 document.querySelectorAll(".tab").forEach(tab => {
     tab.addEventListener("click", () => {
         document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
@@ -230,76 +411,63 @@ document.querySelectorAll(".tab").forEach(tab => {
     });
 });
 
-// --- GALLERY ---
+/* ══════ SECTION TOGGLES ══════ */
+function toggleSection(btn) {
+    btn.classList.toggle("open");
+    btn.nextElementSibling.classList.toggle("open");
+}
+
+/* ══════ GALLERY ══════ */
 async function loadGallery() {
     try {
         const res = await fetch(API + "/api/gallery");
         const images = await res.json();
         const grid = document.getElementById("galleryGrid");
-
-        if (images.length === 0) {
-            grid.innerHTML = '<p style="color:#64748b">Нет фото. Загрузите первое!</p>';
-            return;
-        }
-
-        grid.innerHTML = images.map(img => `
-            <div class="gallery-item">
-                <img src="${img.url}" alt="${img.name || 'photo'}">
-                <div class="overlay">
-                    <button class="btn btn--danger btn--sm" onclick="deleteImage('${img.id}')">Удалить</button>
-                </div>
-            </div>
-        `).join("");
-    } catch (err) {
-        console.error(err);
-    }
+        if (!images.length) { grid.innerHTML = '<div class="empty">Нет фото. Загрузите первое!</div>'; return; }
+        grid.innerHTML = images.map(img => {
+            const safeName = (img.name || "photo").replace(/[<>"'&]/g, "");
+            return '<div class="gallery-item">' +
+                '<img src="' + img.url + '" alt="' + safeName + '">' +
+                '<div class="gallery-item__actions"><button class="btn btn--danger btn--sm" onclick="deleteImage(\'' + img.id + '\')">✕</button></div>' +
+                '<div class="gallery-item__name">' + safeName + '</div>' +
+                '</div>';
+        }).join("");
+    } catch (err) { console.error("Gallery load error:", err); }
 }
 
-// Upload
-document.getElementById("uploadArea").addEventListener("click", () => {
-    document.getElementById("fileInput").click();
-});
+/* Upload via FormData (multer) */
+document.getElementById("uploadArea").addEventListener("click", () => document.getElementById("fileInput").click());
 
 document.getElementById("fileInput").addEventListener("change", async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
+    const files = e.target.files;
+    if (!files.length) return;
     const msgEl = document.getElementById("uploadMsg");
 
-    // Convert to base64
-    const reader = new FileReader();
-    reader.onload = async function() {
+    for (const file of files) {
+        const formData = new FormData();
+        formData.append("image", file);
+        formData.append("name", file.name);
         try {
             const res = await fetch(API + "/api/gallery", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": "Bearer " + token
-                },
-                body: JSON.stringify({ image: reader.result, name: file.name })
+                headers: { "Authorization": "Bearer " + token },
+                body: formData
             });
-            if (res.ok) {
-                showMsg(msgEl, "Фото загружено!", "ok");
-                loadGallery();
-            } else {
-                showMsg(msgEl, "Ошибка загрузки", "err");
-            }
-        } catch (err) {
-            showMsg(msgEl, "Сервер недоступен", "err");
-        }
-    };
-    reader.readAsDataURL(file);
-
+            if (res.ok) { showMsg(msgEl, "Фото загружено!", "ok"); }
+            else { const d = await res.json().catch(() => ({})); showMsg(msgEl, d.error || "Ошибка загрузки", "err"); }
+        } catch { showMsg(msgEl, "Сервер недоступен", "err"); }
+    }
+    loadGallery();
     e.target.value = "";
 });
 
-// Drag & drop
+/* Drag & drop */
 const uploadArea = document.getElementById("uploadArea");
-uploadArea.addEventListener("dragover", (e) => { e.preventDefault(); uploadArea.style.borderColor = "#f59e0b"; });
-uploadArea.addEventListener("dragleave", () => { uploadArea.style.borderColor = "#334155"; });
+uploadArea.addEventListener("dragover", (e) => { e.preventDefault(); uploadArea.classList.add("drag"); });
+uploadArea.addEventListener("dragleave", () => uploadArea.classList.remove("drag"));
 uploadArea.addEventListener("drop", (e) => {
     e.preventDefault();
-    uploadArea.style.borderColor = "#334155";
+    uploadArea.classList.remove("drag");
     const file = e.dataTransfer.files[0];
     if (file && file.type.startsWith("image/")) {
         const input = document.getElementById("fileInput");
@@ -313,65 +481,49 @@ uploadArea.addEventListener("drop", (e) => {
 async function deleteImage(id) {
     if (!confirm("Удалить фото?")) return;
     try {
-        await fetch(API + "/api/gallery-delete?id=" + id, {
+        await fetch(API + "/api/gallery/" + id, {
             method: "DELETE",
             headers: { "Authorization": "Bearer " + token }
         });
         loadGallery();
-    } catch (err) {
-        alert("Ошибка удаления");
-    }
+    } catch { alert("Ошибка удаления"); }
 }
 
-// --- CONTENT ---
+/* ══════ CONTENT ══════ */
 async function loadContent() {
     try {
         const res = await fetch(API + "/api/content");
         const data = await res.json();
-        document.getElementById("c_phone").value = data.phone || "";
-        document.getElementById("c_email").value = data.email || "";
-        document.getElementById("c_address").value = data.address || "";
-        document.getElementById("c_about").value = data.about_text || "";
-    } catch (err) {
-        console.error(err);
-    }
+        CONTENT_FIELDS.forEach(key => {
+            const el = document.getElementById("c_" + key);
+            if (el) el.value = data[key] || "";
+        });
+    } catch (err) { console.error("Content load error:", err); }
 }
 
-document.getElementById("contentForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
+async function saveContent() {
     const msgEl = document.getElementById("contentMsg");
-
-    const body = {
-        phone: document.getElementById("c_phone").value.trim(),
-        email: document.getElementById("c_email").value.trim(),
-        address: document.getElementById("c_address").value.trim(),
-        about_text: document.getElementById("c_about").value.trim()
-    };
-
+    const body = {};
+    CONTENT_FIELDS.forEach(key => {
+        const el = document.getElementById("c_" + key);
+        if (el) body[key] = el.value.trim();
+    });
     try {
         const res = await fetch(API + "/api/content", {
             method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + token
-            },
+            headers: { "Content-Type": "application/json", "Authorization": "Bearer " + token },
             body: JSON.stringify(body)
         });
-        if (res.ok) {
-            showMsg(msgEl, "Сохранено!", "ok");
-        } else {
-            showMsg(msgEl, "Ошибка сохранения", "err");
-        }
-    } catch (err) {
-        showMsg(msgEl, "Сервер недоступен", "err");
-    }
-});
+        if (res.ok) showMsg(msgEl, "✅ Все изменения сохранены!", "ok");
+        else showMsg(msgEl, "Ошибка сохранения", "err");
+    } catch { showMsg(msgEl, "Сервер недоступен", "err"); }
+}
 
 function showMsg(el, text, type) {
     el.textContent = text;
     el.className = "msg msg--" + type;
     el.style.display = "block";
-    setTimeout(() => { el.style.display = "none"; }, 3000);
+    setTimeout(() => { el.style.display = "none"; }, 3500);
 }
 </script>
 </body>

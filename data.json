@@ -1,15 +1,42 @@
 {
   "admin": {
-    "email": "admin@disma.ee",
+    "email": "admin@dysmas.ee",
     "password": "$2b$12$beqyDO8XF.HQvUSWEOVyCe1GFAdkO3yHjvzMEuOMpj2RY13URwlXa"
   },
   "content": {
+    "hero_badge": "",
     "hero_title": "",
     "hero_text": "",
+    "about_title": "",
     "about_text": "",
+    "about_f1_title": "",
+    "about_f1_text": "",
+    "about_f2_title": "",
+    "about_f2_text": "",
+    "about_f3_title": "",
+    "about_f3_text": "",
+    "process_title": "",
+    "process_subtitle": "",
+    "process_s1_title": "",
+    "process_s1_text": "",
+    "process_s2_title": "",
+    "process_s2_text": "",
+    "process_s3_title": "",
+    "process_s3_text": "",
+    "process_s4_title": "",
+    "process_s4_text": "",
+    "services_title": "",
+    "services_subtitle": "",
+    "svc_cat1_title": "",
+    "svc_cat1_desc": "",
+    "svc_cat2_title": "",
+    "svc_cat2_desc": "",
+    "svc_cat3_title": "",
+    "svc_cat3_desc": "",
     "phone": "+372 5590 8490",
     "email": "dismasehitus@gmail.com",
-    "address": "Tallinn"
+    "address": "Tallinn",
+    "footer_desc": ""
   },
   "gallery": []
 }

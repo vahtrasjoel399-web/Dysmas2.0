@@ -1,3 +1,89 @@
+/* ===== ADMIN API ===== */
+const ADMIN_API = "https://dysmas-ehitus.onrender.com";
+
+async function loadAdminContent() {
+    try {
+        const res = await fetch(ADMIN_API + "/api/content");
+        if (!res.ok) return;
+        const content = await res.json();
+
+        // Merge non-empty admin values into Estonian translations
+        for (const [key, value] of Object.entries(content)) {
+            if (value && typeof value === "string" && value.trim() && translations.et.hasOwnProperty(key)) {
+                translations.et[key] = value;
+            }
+        }
+
+        // Update contact info directly in DOM (these aren't i18n-driven)
+        if (content.phone && content.phone.trim()) {
+            document.querySelectorAll('a[href^="tel:"]').forEach(el => {
+                el.href = "tel:" + content.phone.replace(/\s/g, "");
+                const span = el.querySelector("span");
+                if (span) span.textContent = content.phone;
+                else if (!el.querySelector("svg")) el.textContent = content.phone;
+            });
+        }
+        if (content.email && content.email.trim()) {
+            document.querySelectorAll('a[href^="mailto:"]').forEach(el => {
+                el.href = "mailto:" + content.email;
+                if (!el.querySelector("svg")) el.textContent = content.email;
+            });
+        }
+
+        // Re-apply current language to update DOM
+        setLanguage(currentLang);
+    } catch (e) {
+        // Admin API not available — use defaults
+    }
+}
+
+async function loadAdminGallery() {
+    try {
+        const res = await fetch(ADMIN_API + "/api/gallery");
+        if (!res.ok) return;
+        const images = await res.json();
+        if (!images.length) return;
+
+        const track1 = document.getElementById("galleryTrack");
+        if (!track1) return;
+
+        // Add admin photos to the first gallery track (+ duplicates for infinite scroll)
+        images.forEach(img => {
+            const url = ADMIN_API + img.url;
+            const item = document.createElement("div");
+            item.className = "gallery__item";
+            const imgEl = document.createElement("img");
+            imgEl.src = url;
+            imgEl.alt = img.name || "photo";
+            imgEl.loading = "lazy";
+            item.appendChild(imgEl);
+            track1.appendChild(item);
+
+            // Duplicate for infinite scroll
+            track1.appendChild(item.cloneNode(true));
+        });
+
+        // Re-attach click listeners for gallery modal on new images
+        const modal = document.getElementById("galleryModal");
+        const modalImg = document.getElementById("modalImg");
+        if (modal && modalImg) {
+            track1.querySelectorAll(".gallery__item img").forEach(img => {
+                if (!img._modalBound) {
+                    img._modalBound = true;
+                    img.addEventListener("click", () => {
+                        modalImg.src = img.src;
+                        modal.classList.add("active");
+                        document.body.style.overflow = "hidden";
+                        document.querySelectorAll(".gallery__track").forEach(t => t.style.animationPlayState = "paused");
+                    });
+                }
+            });
+        }
+    } catch (e) {
+        // Admin gallery not available
+    }
+}
+
 /* ===== TRANSLATIONS ===== */
 const translations = {
     et: {
@@ -369,6 +455,8 @@ document.addEventListener("DOMContentLoaded", () => {
     initActiveNav();
     initReviews();
     initReviewModal();
+    loadAdminContent();
+    loadAdminGallery();
 });
 
 /* ===== HEADER SCROLL ===== */
