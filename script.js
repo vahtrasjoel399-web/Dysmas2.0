@@ -571,27 +571,22 @@ function initContactForm() {
         btn.disabled = true;
         btn.textContent = currentLang === "ru" ? "Отправка..." : currentLang === "en" ? "Sending..." : "Saatmine...";
 
-        fetch("/send", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, message })
+        emailjs.send("service_fxfpy0u", "template_fj9e0ip", {
+            name: name,
+            email: email,
+            message: message
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                btn.textContent = currentLang === "ru" ? "Отправлено ✓" : currentLang === "en" ? "Sent ✓" : "Saadetud ✓";
-                btn.style.background = "var(--color-success)";
-                btn.style.borderColor = "var(--color-success)";
-                setTimeout(() => {
-                    form.reset();
-                    btn.textContent = originalText;
-                    btn.style.background = "";
-                    btn.style.borderColor = "";
-                    btn.disabled = false;
-                }, 3000);
-            } else {
-                throw new Error("Send failed");
-            }
+        .then(() => {
+            btn.textContent = currentLang === "ru" ? "Отправлено ✓" : currentLang === "en" ? "Sent ✓" : "Saadetud ✓";
+            btn.style.background = "var(--color-success)";
+            btn.style.borderColor = "var(--color-success)";
+            setTimeout(() => {
+                form.reset();
+                btn.textContent = originalText;
+                btn.style.background = "";
+                btn.style.borderColor = "";
+                btn.disabled = false;
+            }, 3000);
         })
         .catch(() => {
             btn.textContent = currentLang === "ru" ? "Ошибка ✗" : currentLang === "en" ? "Error ✗" : "Viga ✗";
