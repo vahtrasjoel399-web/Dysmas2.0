@@ -1,0 +1,15 @@
+{
+  "admin": {
+    "email": "admin@disma.ee",
+    "password": "$2b$12$beqyDO8XF.HQvUSWEOVyCe1GFAdkO3yHjvzMEuOMpj2RY13URwlXa"
+  },
+  "content": {
+    "hero_title": "",
+    "hero_text": "",
+    "about_text": "",
+    "phone": "+372 5590 8490",
+    "email": "dismasehitus@gmail.com",
+    "address": "Tallinn"
+  },
+  "gallery": []
+}
