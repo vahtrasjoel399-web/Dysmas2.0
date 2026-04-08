@@ -60,6 +60,28 @@ img {
     display: block;
 }
 
+/* About logo fun animation */
+.about__logo-anim {
+    animation: aboutLogoSpin 3s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+    filter: drop-shadow(0 4px 24px #c9a96e44);
+    will-change: transform;
+}
+@keyframes aboutLogoSpin {
+    0% { transform: scale(1) rotate(-8deg); }
+    50% { transform: scale(1.08) rotate(8deg); }
+    100% { transform: scale(1) rotate(-8deg); }
+}
+
+.about__img-anim {
+    animation: aboutImgFloat 4s ease-in-out infinite alternate;
+    filter: brightness(1.08) drop-shadow(0 2px 12px #c9a96e22);
+}
+@keyframes aboutImgFloat {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-12px) scale(1.04); }
+}
+}
+
 a {
     text-decoration: none;
     color: inherit;

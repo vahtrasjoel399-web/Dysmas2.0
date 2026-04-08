@@ -44,30 +44,51 @@ async function loadAdminGallery() {
         const images = await res.json();
         if (!images.length) return;
 
-        const track1 = document.getElementById("galleryTrack");
-        if (!track1) return;
+        // Insert admin photos into both gallery tracks
+        const tracks = [
+            document.getElementById("galleryTrack"),
+            document.getElementById("galleryTrack2")
+        ];
 
-        // Add admin photos to the first gallery track (+ duplicates for infinite scroll)
-        images.forEach(img => {
-            const url = ADMIN_API + img.url;
-            const item = document.createElement("div");
-            item.className = "gallery__item";
-            const imgEl = document.createElement("img");
-            imgEl.src = url;
-            imgEl.alt = img.name || "photo";
-            imgEl.loading = "lazy";
-            item.appendChild(imgEl);
-            track1.appendChild(item);
+        tracks.forEach(track => {
+            if (!track) return;
 
-            // Duplicate for infinite scroll
-            track1.appendChild(item.cloneNode(true));
+            // Collect original items (first half — before duplicates)
+            const allItems = Array.from(track.querySelectorAll(".gallery__item"));
+            const half = Math.floor(allItems.length / 2);
+            const originals = allItems.slice(0, half);
+
+            // Build new admin items
+            const adminItems = images.map(img => {
+                const div = document.createElement("div");
+                div.className = "gallery__item";
+                const imgEl = document.createElement("img");
+                imgEl.src = ADMIN_API + img.url;
+                imgEl.alt = img.name || "photo";
+                imgEl.loading = "lazy";
+                div.appendChild(imgEl);
+                return div;
+            });
+
+            // Clear track and rebuild: originals + admin + duplicates of all
+            track.innerHTML = "";
+            const combined = [];
+            originals.forEach(el => { track.appendChild(el); combined.push(el); });
+            adminItems.forEach(el => { track.appendChild(el); combined.push(el); });
+            // Duplicate everything for infinite scroll
+            combined.forEach(el => track.appendChild(el.cloneNode(true)));
+
+            // Restart animation so timing matches new width
+            track.style.animation = "none";
+            track.offsetHeight; // force reflow
+            track.style.animation = "";
         });
 
-        // Re-attach click listeners for gallery modal on new images
+        // Re-attach click listeners for gallery modal on all images
         const modal = document.getElementById("galleryModal");
         const modalImg = document.getElementById("modalImg");
         if (modal && modalImg) {
-            track1.querySelectorAll(".gallery__item img").forEach(img => {
+            document.querySelectorAll(".gallery__track .gallery__item img").forEach(img => {
                 if (!img._modalBound) {
                     img._modalBound = true;
                     img.addEventListener("click", () => {
@@ -80,7 +101,7 @@ async function loadAdminGallery() {
             });
         }
     } catch (e) {
-        // Admin gallery not available
+        // Admin gallery not available — keep default images
     }
 }
 

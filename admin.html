@@ -489,6 +489,43 @@ async function deleteImage(id) {
     } catch { alert("Ошибка удаления"); }
 }
 
+/* ── Default site texts (shown when field is empty) ── */
+const DEFAULTS = {
+    hero_badge: "Üle 10 aasta kogemust",
+    hero_title: "Ehitame kvaliteeti.<br>Loome kodu.",
+    hero_text: "Pakume usaldusväärset teenust üle kogu Eesti.",
+    about_title: "Usaldusväärne partner ehituses",
+    about_text: "Dysmas Ehitus OÜ on usaldusväärne ehitusettevõte, mis pakub laia valikut ehitus- ja remonttöid üle kogu Eesti. Meie meeskond koosneb kogenud spetsialistidest, kes tagavad iga projekti kõrge kvaliteedi ja tähtaegadest kinnipidamise.",
+    about_f1_title: "Kogenud meeskond",
+    about_f1_text: "Professionaalsed ehitusspetsialistid",
+    about_f2_title: "Kvaliteedi garantii",
+    about_f2_text: "Kasutame ainult kvaliteetseid materjale",
+    about_f3_title: "Tähtaegadest kinnipidamine",
+    about_f3_text: "Alati õigeaegselt valmis",
+    process_title: "Meie tööprotsess",
+    process_subtitle: "Lihtne ja läbipaistev koostöö algusest lõpuni.",
+    process_s1_title: "Tutvumine",
+    process_s1_text: "Kohtume teiega, kuulame soove ja hindame projekti mahtu. Arutame eelarvet, tähtaegu ja ootusi.",
+    process_s2_title: "Hindamine",
+    process_s2_text: "Teostame objekti ülevaatuse, koostame detailse hinnapakkumise ja tööplaani.",
+    process_s3_title: "Kohandamine",
+    process_s3_text: "Kohandame lahenduse vastavalt teie soovile — materjalid, disain, ajakava. Kõik vastavalt teie vajadustele.",
+    process_s4_title: "Teostus",
+    process_s4_text: "Alustame tööd kokkulepitud ajakava järgi. Hoiame teid protsessiga kursis ja tagame kvaliteedi igal etapil.",
+    services_title: "Meie teenused",
+    services_subtitle: "Pakume laia valikut ehitus- ja remonttöid, et teie projekt oleks parimas kätes.",
+    svc_cat1_title: "Üldehitus",
+    svc_cat1_desc: "Täielik ehitusteenus alates vundamendist kuni võtmete üleandmiseni.",
+    svc_cat2_title: "Siseviimistlus",
+    svc_cat2_desc: "Professionaalne siseviimistlus, mis muudab ruumid kauniks ja funktsionaalseks.",
+    svc_cat3_title: "Santehnika",
+    svc_cat3_desc: "Sanitaartehnilised tööd ja torustike paigaldus professionaalsel tasemel.",
+    phone: "+372 5590 8490",
+    email: "dismasehitus@gmail.com",
+    address: "Tallinn",
+    footer_desc: "Üldehitustööd vundamendist võtmeteni — pakume usaldusväärset teenust üle kogu Eesti."
+};
+
 /* ══════ CONTENT ══════ */
 async function loadContent() {
     try {
@@ -496,7 +533,7 @@ async function loadContent() {
         const data = await res.json();
         CONTENT_FIELDS.forEach(key => {
             const el = document.getElementById("c_" + key);
-            if (el) el.value = data[key] || "";
+            if (el) el.value = data[key] && data[key].trim() ? data[key] : (DEFAULTS[key] || "");
         });
     } catch (err) { console.error("Content load error:", err); }
 }
