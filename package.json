@@ -1,0 +1,23 @@
+{
+  "name": "robeert2.0",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000D\u0000y\u0000s\u0000m\u0000a\u0000s\u00002\u0000.\u00000\u0000\r\u0000 \u0000",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vahtrasjoel399-web/Dysmas2.0.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vahtrasjoel399-web/Dysmas2.0/issues"
+  },
+  "homepage": "https://github.com/vahtrasjoel399-web/Dysmas2.0#readme",
+  "dependencies": {
+    "nodemailer": "^8.0.5"
+  }
+}
