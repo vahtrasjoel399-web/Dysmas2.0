@@ -1773,3 +1773,16 @@ ul { list-style: none; }
         height: 165px;
     }
 }
+.footer__links a,
+.footer__contact a,
+.contact__info-card a {
+    text-decoration: none;
+}
+a {
+    text-decoration: none !important;
+}
+.footer__links a,
+.footer__contact a {
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+}
