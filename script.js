@@ -572,6 +572,7 @@ function initContactForm() {
         btn.textContent = currentLang === "ru" ? "Отправка..." : currentLang === "en" ? "Sending..." : "Saatmine...";
 
         emailjs.send("service_fxfpy0u", "template_fj9e0ip", {
+            title: name,
             name: name,
             email: email,
             message: message
