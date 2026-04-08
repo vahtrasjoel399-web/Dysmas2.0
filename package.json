@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/vahtrasjoel399-web/Dysmas2.0#readme",
   "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "nodemailer": "^8.0.5"
   }
 }

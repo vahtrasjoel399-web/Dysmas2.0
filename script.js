@@ -566,21 +566,44 @@ function initContactForm() {
 
         if (!name || !email || !message) return;
 
-        // Show success state
         const btn = form.querySelector('button[type="submit"]');
         const originalText = btn.textContent;
-        btn.textContent = currentLang === "ru" ? "Отправлено ✓" : currentLang === "en" ? "Sent ✓" : "Saadetud ✓";
-        btn.style.background = "var(--color-success)";
-        btn.style.borderColor = "var(--color-success)";
         btn.disabled = true;
+        btn.textContent = currentLang === "ru" ? "Отправка..." : currentLang === "en" ? "Sending..." : "Saatmine...";
 
-        setTimeout(() => {
-            form.reset();
-            btn.textContent = originalText;
-            btn.style.background = "";
-            btn.style.borderColor = "";
-            btn.disabled = false;
-        }, 3000);
+        fetch("/send", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                btn.textContent = currentLang === "ru" ? "Отправлено ✓" : currentLang === "en" ? "Sent ✓" : "Saadetud ✓";
+                btn.style.background = "var(--color-success)";
+                btn.style.borderColor = "var(--color-success)";
+                setTimeout(() => {
+                    form.reset();
+                    btn.textContent = originalText;
+                    btn.style.background = "";
+                    btn.style.borderColor = "";
+                    btn.disabled = false;
+                }, 3000);
+            } else {
+                throw new Error("Send failed");
+            }
+        })
+        .catch(() => {
+            btn.textContent = currentLang === "ru" ? "Ошибка ✗" : currentLang === "en" ? "Error ✗" : "Viga ✗";
+            btn.style.background = "#e74c3c";
+            btn.style.borderColor = "#e74c3c";
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = "";
+                btn.style.borderColor = "";
+                btn.disabled = false;
+            }, 3000);
+        });
     });
 }
 
