@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
@@ -19,7 +20,7 @@ app.get("/admin", (req, res) => {
   res.sendFile(path.join(__dirname, "admin.html"));
 });
 
-const JWT_SECRET = "disma_ehitus_secret_key_2024";
+const JWT_SECRET = process.env.JWT_SECRET || "disma_ehitus_secret_key_2024";
 const DATA_FILE = path.join(__dirname, "data.json");
 
 // Ensure uploads folder exists
@@ -128,40 +129,75 @@ app.put("/api/content", auth, (req, res) => {
   res.json(data.content);
 });
 
-// ── Email (Nodemailer) ──
+// ── Email (Nodemailer via SMTP) ──
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT) || 587,
+  secure: false,
   auth: {
-    user: "dismasehitus@gmail.com",
-    pass: "wzclxivgxudenjbt"
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS
   }
 });
 
-app.post("/send", (req, res) => {
+// Валидация и санитизация
+function sanitizeInput(str) {
+  if (typeof str !== "string") return "";
+  return str.trim().slice(0, 5000).replace(/[<>]/g, "");
+}
+
+function isValidEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email) && email.length <= 100;
+}
+
+app.post("/api/send", async (req, res) => {
   const { name, email, message } = req.body;
 
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: "Все поля обязательны" });
+  // Санитизация
+  const cleanName = sanitizeInput(name);
+  const cleanEmail = sanitizeInput(email).toLowerCase();
+  const cleanMessage = sanitizeInput(message);
+
+  // Валидация на бэке
+  if (!cleanName || cleanName.length < 2) {
+    return res.status(400).json({ error: "Имя должно быть минимум 2 символа" });
   }
 
-  const mailOptions = {
-    from: "dismasehitus@gmail.com",
-    to: "dismasehitus@gmail.com",
-    subject: "Новая заявка от " + name,
-    text: "Имя: " + name + "\nEmail: " + email + "\nСообщение: " + message
-  };
+  if (!isValidEmail(cleanEmail)) {
+    return res.status(400).json({ error: "Некорректный email" });
+  }
 
-  transporter.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      console.log("Ошибка отправки:", err.message);
-      return res.status(500).json({ error: "Ошибка отправки" });
-    }
-    console.log("Письмо отправлено:", info.response);
-    res.json({ success: true });
-  });
+  if (!cleanMessage || cleanMessage.length < 10) {
+    return res.status(400).json({ error: "Сообщение должно быть минимум 10 символов" });
+  }
+
+  try {
+    const mailOptions = {
+      from: process.env.SMTP_FROM,
+      to: process.env.SMTP_TO,
+      subject: "Новая заявка от " + cleanName,
+      html: `
+        <h2>Новая заявка с сайта Dysmas Ehitus</h2>
+        <p><strong>Имя:</strong> ${cleanName}</p>
+        <p><strong>Email:</strong> <a href="mailto:${cleanEmail}">${cleanEmail}</a></p>
+        <p><strong>Сообщение:</strong></p>
+        <p>${cleanMessage.replace(/\n/g, "<br>")}</p>
+        <hr>
+        <small>Время: ${new Date().toLocaleString()}</small>
+      `
+    };
+
+    await transporter.sendMail(mailOptions);
+    console.log("✅ Письмо отправлено от:", cleanName);
+    res.json({ success: true, message: "Письмо успешно отправлено" });
+  } catch (err) {
+    console.error("❌ Ошибка отправки:", err.message);
+    res.status(500).json({ error: "Ошибка отправки письма" });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log("Сервер запущен: http://localhost:" + PORT);
+  console.log("🚀 Сервер запущен: http://localhost:" + PORT);
 });

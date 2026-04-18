@@ -1,5 +1,14 @@
 {
-  "redirects": [
-    { "source": "/admin", "destination": "https://dysmas-ehitus.onrender.com/admin", "permanent": false }
+  "buildCommand": "npm install",
+  "framework": "express",
+  "env": [
+    "PORT",
+    "SMTP_HOST",
+    "SMTP_PORT",
+    "SMTP_USER",
+    "SMTP_PASS",
+    "SMTP_FROM",
+    "SMTP_TO",
+    "JWT_SECRET"
   ]
 }

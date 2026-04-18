@@ -666,39 +666,69 @@ function initContactForm() {
     const form = document.getElementById("contactForm");
     if (!form) return;
 
-    form.addEventListener("submit", (e) => {
+    // Валидация email
+    function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    // Валидация текста (без инъекций)
+    function sanitizeInput(str) {
+        return str.trim().slice(0, 5000);
+    }
+
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const name = form.querySelector("#name").value.trim();
-        const email = form.querySelector("#email").value.trim();
-        const message = form.querySelector("#message").value.trim();
+        const name = sanitizeInput(form.querySelector("#name").value);
+        const email = sanitizeInput(form.querySelector("#email").value);
+        const message = sanitizeInput(form.querySelector("#message").value);
 
-        if (!name || !email || !message) return;
+        // Проверки
+        if (!name || name.length < 2) {
+            alert(currentLang === "ru" ? "Имя должно быть минимум 2 символа" : "Name must be at least 2 characters");
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            alert(currentLang === "ru" ? "Введите корректный email" : "Please enter a valid email");
+            return;
+        }
+
+        if (!message || message.length < 10) {
+            alert(currentLang === "ru" ? "Сообщение должно быть минимум 10 символов" : "Message must be at least 10 characters");
+            return;
+        }
 
         const btn = form.querySelector('button[type="submit"]');
         const originalText = btn.textContent;
         btn.disabled = true;
         btn.textContent = currentLang === "ru" ? "Отправка..." : currentLang === "en" ? "Sending..." : "Saatmine...";
 
-        emailjs.send("service_fxfpy0u", "template_19itq25", {
-            title: name,
-            name: name,
-            email: email,
-            message: message
-        })
-        .then(() => {
-            btn.textContent = currentLang === "ru" ? "Отправлено ✓" : currentLang === "en" ? "Sent ✓" : "Saadetud ✓";
-            btn.style.background = "var(--color-success)";
-            btn.style.borderColor = "var(--color-success)";
-            setTimeout(() => {
-                form.reset();
-                btn.textContent = originalText;
-                btn.style.background = "";
-                btn.style.borderColor = "";
-                btn.disabled = false;
-            }, 3000);
-        })
-        .catch(() => {
+        try {
+            const response = await fetch("/api/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, message })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                btn.textContent = currentLang === "ru" ? "Отправлено ✓" : currentLang === "en" ? "Sent ✓" : "Saadetud ✓";
+                btn.style.background = "var(--color-success)";
+                btn.style.borderColor = "var(--color-success)";
+                setTimeout(() => {
+                    form.reset();
+                    btn.textContent = originalText;
+                    btn.style.background = "";
+                    btn.style.borderColor = "";
+                    btn.disabled = false;
+                }, 3000);
+            } else {
+                throw new Error(data.error || "Failed");
+            }
+        } catch (err) {
             btn.textContent = currentLang === "ru" ? "Ошибка ✗" : currentLang === "en" ? "Error ✗" : "Viga ✗";
             btn.style.background = "#e74c3c";
             btn.style.borderColor = "#e74c3c";
@@ -708,7 +738,7 @@ function initContactForm() {
                 btn.style.borderColor = "";
                 btn.disabled = false;
             }, 3000);
-        });
+        }
     });
 }
 
