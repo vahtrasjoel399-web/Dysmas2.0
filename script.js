@@ -695,8 +695,13 @@ function initContactForm() {
             return;
         }
 
-        if (!message || message.length < 10) {
-            alert(currentLang === "ru" ? "Сообщение должно быть минимум 10 символов" : "Message must be at least 10 characters");
+        if (!message) {
+            alert(currentLang === "ru" ? "Введите сообщение" : currentLang === "en" ? "Please enter a message" : "Palun sisestage sõnum");
+            return;
+        }
+
+        if (message.length > 1000) {
+            alert(currentLang === "ru" ? "Сообщение не должно превышать 1000 символов" : currentLang === "en" ? "Message must not exceed 1000 characters" : "Sõnum ei tohi ületada 1000 tähemärki");
             return;
         }
 

@@ -56,8 +56,12 @@ module.exports = async (req, res) => {
     return res.status(400).json({ error: "Некорректный email" });
   }
 
-  if (!cleanMessage || cleanMessage.length < 10) {
-    return res.status(400).json({ error: "Сообщение должно быть минимум 10 символов" });
+  if (!cleanMessage) {
+    return res.status(400).json({ error: "Введите сообщение" });
+  }
+
+  if (cleanMessage.length > 1000) {
+    return res.status(400).json({ error: "Сообщение не должно превышать 1000 символов" });
   }
 
   try {
