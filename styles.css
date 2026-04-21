@@ -52,6 +52,8 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 img {
@@ -67,8 +69,7 @@ img {
 
 .about__img-anim {
     filter: brightness(1.08) drop-shadow(0 2px 12px #c9a96e22);
-}
-}
+        }
 
 a {
     text-decoration: none;
@@ -1773,4 +1774,9 @@ a {
 .footer__contact a {
     color: rgba(255, 255, 255, 0.65);
     text-decoration: none;
+}
+
+.footer__links a:hover,
+.footer__contact a:hover {
+    color: var(--color-accent);
 }
