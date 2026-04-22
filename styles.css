@@ -1780,14 +1780,3 @@ a {
 .footer__contact a:hover {
     color: var(--color-accent);
 }
-.footer__privacy a {
-    padding: 6px 12px;
-    border-radius: 8px;
-    color: rgba(116, 20, 20, 0.65);
-    transition: all 0.25s ease;
-}
-
-.footer__privacy a:hover {
-    color: var(--color-primary);
-    background: var(--color-bg-alt);
-}
